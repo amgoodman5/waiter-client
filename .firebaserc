@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "line-waiter",
+    "staging": "line-waiter"
+  }
+}
