@@ -1,6 +1,9 @@
 
 
 /*nav*/
+a.navbar-brand {
+  color:white!important;
+}
 .navbar-custom {
   background: #2C3E50;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -76,6 +79,25 @@ header .header-content .header-content-inner p {
   font-size: 16px;
   margin-bottom: 50px;
 }
+/*header button*/
+.btn-primary {
+    padding-left: 4em;
+    padding-right: 4em;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+
+.container-fluid {
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
 
 
 /*media queries*/
