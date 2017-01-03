@@ -98,7 +98,10 @@ header .header-content .header-content-inner p {
 }
 
 
-
+/* carousel*/
+section.carousel-section {
+    padding-top: 20%!important;
+}
 
 /*media queries*/
 @media (min-width: 768px) {
