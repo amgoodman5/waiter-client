@@ -14,61 +14,17 @@
     }
 
     .row {
-      height: 20%;
+      padding-bottom: 1em;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .autocomplete-box {
-      height: 30em;
-    }
-
-    .controls {
-        margin-top: 10px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-   }
-
-   .pac-container {
-    background-color: #FFF;
-    z-index: 20;
-    position: fixed;
-    display: inline-block;
-    float: left;
-}
-
-    #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 300px;
-        margin: .25em;
-    }
-    #pac-input:focus {
-        border-color: #4d90fe;
-    }
-
-    #type-selector {
-        color: #fff;
-        background-color: #4d90fe;
-        padding: 5px 11px 0;
-    }
-
-    #type-selector label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-    }
-
-    #target {
-      width: 345px;
+      height: 20em;
     }
 
     #map {
@@ -76,6 +32,23 @@
       height: 100%;
   }
 
+    .gm-style-mtc {
+    display: none;
+  }
+
+  .time-date {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .send-request {
+    width: 40%;
+  }
     .place-contact {
       display: flex;
       align-items: center;

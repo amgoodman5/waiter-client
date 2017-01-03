@@ -46,7 +46,7 @@ function initAutocomplete() {
     // Create the search box and link it to the UI element.
     let input = document.getElementById('pac-input');
     let searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
@@ -107,19 +107,15 @@ function initAutocomplete() {
 
 function createContact(places) {
     let $placecontact = $('.place-contact');
-    let contact = `<div class="card"><div class="image-holder">
-      <img class="card-img-top" src="${places[0].photos[0].getUrl({maxWidth:640})}" alt="Card image cap"></div>
+    let contact = `<div class="card">
       <div class="card-block">
         <h4 class="card-title">${places[0].name}</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${places[0].formatted_address}</li>
         <li class="list-group-item">${places[0].formatted_phone_number}</li>
+        <li class="list-group-item"><a href="#" class="card-link">${places[0].website}</a></li>
       </ul>
-      <div class="card-block">
-        <a href="#" class="card-link">${places[0].website}</a>
-      </div>
     </div>`;
     if ($(".card")[0]) {
         $('.card').empty();
