@@ -52,9 +52,13 @@
     .place-contact {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     .image-holder {
-      height: 20em;
-      overflow: hidden;
-    }
+    overflow: hidden;
+  }
+
+  .card-image {
+    height: 20em;
+  }
