@@ -102,7 +102,19 @@ header .header-content .header-content-inner p {
 section.carousel-section {
     padding-top: 20%!important;
 }
-
+footer {
+    padding-top: 1%;
+    height: 3em;
+    background: #2C3E50;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+footer p {
+    color: white;
+}
 /*media queries*/
 @media (min-width: 768px) {
   header {
