@@ -148,7 +148,7 @@ function sendRequest(data) {
 }
 
 function addressSplit() {
-    let address = $('#pac-input').val().split(',').slice(1).join(',');
+    let address = $('#pac-input').val().split(',').slice(1).join(',').trim(' ');
     return address;
 }
 
