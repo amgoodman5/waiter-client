@@ -126,20 +126,22 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
-    const API_URL = 'http://localhost:3000/user/new';
+    const API_URL = 'http://localhost:3000/users/jobs/newjob';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
         formObj.name = nameSplit();
         formObj.address = addressSplit();
         formObj.date = $('#date-input').val();
+        formObj.lat = 123;
+        formObj.long = 234;
         formObj.time = $('#time-input').val();
         formObj.status = 'requested';
         formObj.rate = 2;
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
         console.log(formObj);
-        $.post(API_URL).then(function(result) {
+        $.post(API_URL,formObj).then(function(result) {
             console.log(result);
         }).catch(function(error) {
             console.error(error);
