@@ -126,7 +126,7 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
-    const API_URL = 'http://localhost:3000/user/newjob';
+    const API_URL = 'http://localhost:3000/user/new';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
