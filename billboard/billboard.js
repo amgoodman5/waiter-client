@@ -1,9 +1,16 @@
 const JOB_URL = getUrl();
 
 $(document).ready(()=>{
-  getJob();
+  getJob()
+  .then((jobs)=>{
+    jobs.forEach((job) => {
+      console.log(job);
+
+  });
+
 });
 
+});
 function getJob(){
   return $.get(`${JOB_URL}/api`)
 }
@@ -14,3 +21,9 @@ function getUrl(){
     return 'https://line-waiter-db.herokuapp.com';
   }
 };
+  // $.get(JOB_URL).then(job =>{
+  //   job.forEach((job) => {
+  //     console.log(job);
+  //   })
+  //   getUrl()
+  // })
