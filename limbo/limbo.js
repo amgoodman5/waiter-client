@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    sendRequest();
 });
 
 function initAutocomplete() {
@@ -123,4 +123,18 @@ function createContact(places) {
     } else {
         $placecontact.append(contact);
     }
+}
+
+function sendRequest(data) {
+    $('#request-button').click(function(event) {
+        event.preventDefault();
+        let formObj = {};
+        formObj.location = $('#pac-input').val();
+        formObj.phone = $('#date-input').val();
+        formObj.time = $('#time-input').val();
+        console.log(formObj);
+        $.post('https://galvanize-eats-api.herokuapp.com/orders', formObj, function(congrats) {
+            console.log(congrats);
+        });
+    });
 }
