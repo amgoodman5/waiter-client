@@ -1,12 +1,4 @@
-#homeHeading h1{
 
-}
-#homeHeading h2{
-
-}
-#homeHeading h3{
-
-}
 /*nav*/
 a.navbar-brand {
   color:white!important;
@@ -34,10 +26,10 @@ button#drive_btn {
 
 .parallax {
     /* The image used */
-    background-image: url("../assets/photos/line.jpg");
+    background-image: url("../assets/line.jpg");
 
     /* Set a specific height */
-    height: 100%;
+     height: 100%;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -63,6 +55,9 @@ header {
     background-color: rgba(0, 0, 0, 0.42);
     height: 100%;
 }
+header {
+  min-height: 100%;
+}
 header .header-content {
   position: relative;
   text-align: center;
@@ -78,6 +73,9 @@ header .header-content .header-content-inner h1 {
     margin-bottom: 0;
     font-size: 30px;
     color: #fff;
+}
+header .header-content .header-content-inner h1 {
+    font-size: 50px;
 }
 header .header-content .header-content-inner hr {
   margin: 30px auto;
