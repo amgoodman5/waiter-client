@@ -35,6 +35,11 @@
       flex-direction: column;
     }
 
+    .limbo-tagline {
+      font-size: 2em;
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
     .row {
       padding-bottom: 1em;
     }
@@ -46,7 +51,7 @@
     }
 
     .autocomplete-box {
-      height: 20em;
+      height: 15em;
     }
 
     #map {
@@ -68,7 +73,7 @@
     justify-content: center;
   }
 
-  .send-request {
+  #request-button {
     width: 40%;
   }
     .place-contact {
