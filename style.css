@@ -1,5 +1,12 @@
+#homeHeading h1{
 
+}
+#homeHeading h2{
 
+}
+#homeHeading h3{
+
+}
 /*nav*/
 a.navbar-brand {
   color:white!important;
@@ -99,7 +106,6 @@ header .header-content .header-content-inner p {
     margin-left: auto;
 }
 /*about*/
-
 
 .row
 {
