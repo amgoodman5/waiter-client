@@ -21,6 +21,8 @@ a.navbar-brand {
 button#drive_btn {
     margin-left: 1em!important;
 }
+ /*icons*/
+
 
 
 .parallax {
@@ -96,7 +98,13 @@ header .header-content .header-content-inner p {
     margin-right: auto;
     margin-left: auto;
 }
+/*about*/
 
+
+.row
+{
+   opacity:0;
+}
 
 /* carousel*/
 section.carousel-section {
