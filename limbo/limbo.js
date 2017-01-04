@@ -126,13 +126,18 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
-    const API_URL = 'http://localhost:3000';
+    const API_URL = 'http://localhost:3000/user/new';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
-        formObj.location = $('#pac-input').val();
-        formObj.phone = $('#date-input').val();
+        formObj.name = nameSplit();
+        formObj.address = addressSplit();
+        formObj.date = $('#date-input').val();
         formObj.time = $('#time-input').val();
+        formObj.status = 'requested';
+        formObj.rate = 2;
+        formObj.start_time = $('#time-input').val();
+        formObj.end_time = $('#time-input').val();
         console.log(formObj);
         $.post(API_URL).then(function(result) {
             console.log(result);
@@ -140,4 +145,14 @@ function sendRequest(data) {
             console.error(error);
         });
     });
+}
+
+function addressSplit() {
+    let address = $('#pac-input').val().split(',').slice(1).join(',').trim(' ');
+    return address;
+}
+
+function nameSplit() {
+    let name = $('#pac-input').val().split(',')[0];
+    return name;
 }
