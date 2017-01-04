@@ -4,13 +4,11 @@ $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
     jobs.forEach((job) => {
-      console.log(job);
-
+      $(".card-title").append(`${job.id}`)
   });
-
+});
 });
 
-});
 function getJob(){
   return $.get(`${JOB_URL}/api`)
 }
