@@ -126,6 +126,7 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
+    const API_URL = 'http://localhost:3000';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
@@ -133,8 +134,10 @@ function sendRequest(data) {
         formObj.phone = $('#date-input').val();
         formObj.time = $('#time-input').val();
         console.log(formObj);
-        $.post('https://galvanize-eats-api.herokuapp.com/orders', formObj, function(congrats) {
-            console.log(congrats);
+        $.post(API_URL).then(function(result) {
+            console.log(result);
+        }).catch(function(error) {
+            console.error(error);
         });
     });
 }
