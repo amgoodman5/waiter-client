@@ -126,18 +126,35 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
-    const API_URL = 'http://localhost:3000';
+    const API_URL = 'http://localhost:3000/users/jobs/newjob';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
-        formObj.location = $('#pac-input').val();
-        formObj.phone = $('#date-input').val();
+        formObj.name = nameSplit();
+        formObj.address = addressSplit();
+        formObj.date = $('#date-input').val();
+        formObj.lat = 123;
+        formObj.long = 234;
         formObj.time = $('#time-input').val();
+        formObj.status = 'requested';
+        formObj.rate = 2;
+        formObj.start_time = $('#time-input').val();
+        formObj.end_time = $('#time-input').val();
         console.log(formObj);
-        $.post(API_URL).then(function(result) {
-            console.log(result);
+        $.post(API_URL, formObj).then(function(result) {
+            window.location.replace("http://localhost:8080/dashboard/dashboard")
         }).catch(function(error) {
             console.error(error);
         });
     });
+}
+
+function addressSplit() {
+    let address = $('#pac-input').val().split(',').slice(1).join(',').trim(' ');
+    return address;
+}
+
+function nameSplit() {
+    let name = $('#pac-input').val().split(',')[0];
+    return name;
 }

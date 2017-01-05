@@ -36,12 +36,12 @@
     }
 
     .limbo-tagline {
-      font-size: 2em;
+      font-size: 1.5em;
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .row {
-      padding-bottom: 1em;
+      padding-bottom: .5em;
     }
 
     .form {
