@@ -102,14 +102,46 @@ header .header-content .header-content-inner p {
     border-color: #2e6da4;
 }
 
-
-.container-fluid {
-    text-align: center;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+/*features list */
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  padding: .75em;
 }
+
+.feature-list {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+.icon-col {
+  display: flex;
+  justify-content: center;
+}
+
+.img-icon {
+  height: 2em;
+}
+
+#how-it-works {
+  display: flex;
+  flex-direction: column;
+}
+
+#how-it-works h3 {
+  margin: 0;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+
+
+
 /*about*/
 
 /*.row
