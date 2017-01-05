@@ -67,6 +67,8 @@ a.navbar-brand {
 }
 
 .accordion-job {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -129,13 +131,13 @@ a.navbar-brand {
    -webkit-transform: translateY(-50%) translateX(-50%);
 }
 
-.active-time-label {
+.-label {
   margin: 0px;
   font-size: .8em;
 }
 
-#active-time {
-  margin: 0px;
+.active-time {
+  margin: 0px!important;
 }
 
 .cost-column {

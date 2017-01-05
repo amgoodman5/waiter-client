@@ -5,6 +5,7 @@
         <title>Requester Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/stylesheets/dashboard.css" media="screen" title="no title">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
         <script src="assets/scripts/dashboard.js" type="text/javascript"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -48,74 +49,7 @@
             <div class="jumbotron">
                 <p class="limbo-tagline">My Requests</p>
             </div>
-            <div class="accordion-job">
-                <div id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="card">
-                        <div class="row" role="tab" id="card-header">
-                            <div class="col-xs-5 job-headers">
-                                <h5>
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Snooze Eatery
-                                    </a>
-                                </h5>
-                            </div>
-                            <div class="col-xs-3 job-headers">
-                                <h5>
-                                    Jan 12th
-                                </h5>
-                            </div>
-                            <div class="col-xs-3 job-headers">
-                                <h5 class="mb-0">
-                                    Active
-                                </h5>
-                            </div>
-                        </div>
-                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="card-header">
-                            <div class="card-block">
-                                <div class="list-group list-group">
-                                    <div class="row list-group-item">
-                                        <div class="col-xs-6">
-                                            <p class="active-time-label">Active Waiting Time</p>
-                                            <h3 id="active-time">22 minutes</h3>
-                                        </div>
-                                        <div class="col-xs-6 cost-column">
-                                            <p class="active-time-label">Current Cost</p>
-                                            <h3 id="active-time">$2.02</h3>
-                                        </div>
-                                    </div>
-                                    <div class="row contact-card list-group-item">
-                                        <div class="col-xs-4 image-holder">
-                                            <img
-                                                src="https://static1.squarespace.com/static/511526cde4b067782b69109c/517aa359e4b0ab81ac8d931c/517aa396e4b041a7f26623d5/1366991956677/05-corporate-headshot-photo-WBEZ+-+Chicago+Public+Media_Edwards_Steve_Programming_120328_1210.psd.JPG-1500px.JPG"
-                                                alt=""
-                                                class="contact-img">
-                                        </div>
-                                        <div class="col-xs-8">
-                                            <p class="">Rodney Dangerfield</p>
-                                            <p class="">(321) 231-3111</p>
-                                            <p class="">
-                                                <a href="#">Send Message</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row contact-card list-group-item">
-                                        <div class="col-xs-4 image-holder">
-                                            <img src="http://assets.macerichepicenter.com/FileManager/_shared/Retailers/Logos/SnoozeCafe_Logo.jpg" alt="" class="contact-img">
-                                        </div>
-                                        <div class="col-xs-8">
-                                            <p class="">Snooze AM Eatery</p>
-                                            <p class="">2262 Larimer St, Denver, CO</p>
-                                            <p class="">
-                                                (123) 312-3333
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="accordion-job"></div>
             <div class="row job-request">
                 <a class="btn btn-primary" href="/limbo.html">
                     Make a New Request
@@ -129,6 +63,77 @@
                 <p>&copy; 2016 Dillon & Friends All Rights Reserved.</p>
             </div>
         </footer>
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJE6LnzzzC6AudrqNcB07adFuE9hGDwKI&libraries=places&callback=initAutocomplete" async defer></script> -->
+        <script id="job-template" type="text/x-handlebars-template">
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="card">
+                    {{#each data}}
+                        <div class="row" role="tab" id="card-header">
+                            <div class="col-xs-5 job-headers">
+                                <h5>
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        {{this.name}}
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class="col-xs-3 job-headers">
+                                <h5>
+                                    Date
+                                </h5>
+                            </div>
+                            <div class="col-xs-3 job-headers">
+                                <h5 class="mb-0">
+                                    {{this.status}}
+                                </h5>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="card-header">
+                            <div class="card-block">
+                                <div class="list-group list-group">
+                                    <div class="row list-group-item">
+                                        <div class="col-xs-6">
+                                            <p class="active-time-label">Active Waiting Time</p>
+                                            <h3 class="active-time">22 minutes</h3>
+                                        </div>
+                                        <div class="col-xs-6 cost-column">
+                                            <p class="active-time-label">Current Cost</p>
+                                            <h3 class="active-time">$2.02</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row contact-card list-group-item">
+                                        <div class="col-xs-4 image-holder">
+                                            <img
+                                                src="https://static1.squarespace.com/static/511526cde4b067782b69109c/517aa359e4b0ab81ac8d931c/517aa396e4b041a7f26623d5/1366991956677/05-corporate-headshot-photo-WBEZ+-+Chicago+Public+Media_Edwards_Steve_Programming_120328_1210.psd.JPG-1500px.JPG"
+                                                alt=""
+                                                class="contact-img">
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <p class="">{{this.fname}}
+                                                {{this.lname}}</p>
+                                            <p class="">{{this.phone_number}}</p>
+                                            <p class="">
+                                                <a href="#">Send Message</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row contact-card list-group-item">
+                                        <div class="col-xs-4 image-holder">
+                                            <img src="http://assets.macerichepicenter.com/FileManager/_shared/Retailers/Logos/SnoozeCafe_Logo.jpg" alt="" class="contact-img">
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <p class="">{{this.name}}</p>
+                                            <p class="">{{this.address}}</p>
+                                            <p class="">
+                                                {{this.phone_number}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </script>
+
     </body>
 </html>
