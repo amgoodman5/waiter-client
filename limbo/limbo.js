@@ -1,4 +1,5 @@
-const CLIENT_URL = getUrl();
+const CLIENT_URL = getUrl1();
+const API_URL = getUrl2();
 
 $(document).ready(function() {
     sendRequest();
@@ -128,7 +129,6 @@ function createContact(places) {
 }
 
 function sendRequest(data) {
-    const API_URL = 'http://localhost:3000/users/jobs/newjob';
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
@@ -143,7 +143,7 @@ function sendRequest(data) {
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
         console.log(formObj);
-        $.post(API_URL, formObj).then(function(result) {
+        $.post(`${API_URL}/users/jobs/newjob`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard/dashboard.html`)
         }).catch(function(error) {
             console.error(error);
@@ -161,10 +161,17 @@ function nameSplit() {
     return name;
 }
 
-function getUrl(){
+function getUrl1(){
   if (window.location.host.indexOf('localhost') != -1) {
     return 'http://localhost:8080';
   } else {
     return 'https://line-waiter.firebaseapp.com';
+  }
+};
+function getUrl2(){
+  if (window.location.host.indexOf('localhost') != -1) {
+    return 'http://localhost:3000';
+  } else {
+    return 'https://line-waiter-db.herokuapp.com';
   }
 };
