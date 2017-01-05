@@ -30,7 +30,7 @@ button#drive_btn {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4em;
+  margin-top: 5em;
 }
 
 .limbo-tagline {
@@ -40,4 +40,82 @@ button#drive_btn {
 
 .row {
   padding-bottom: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
+.accordion-job {
+  width: 100%;
+}
+
+.request-header {
+  text-align: center;
+}
+
+.job-headers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7em;
+}
+
+#card-header {
+  margin: 0px;
+  padding: .75em 0em;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-block {
+  width: 100%;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-group-item {
+  border-top: 1px solid #ddd!important;
+  border-bottom: 1px solid #ddd!important;
+  border-right: none!important;
+  border-left: none!important;
+  border-radius: 0px!important;
+}
+
+.image-holder {
+  width: 20px;
+  overflow: hidden;
+}
+
+.contact-img {
+   /*position: absolute;*/
+   height: 5.5em;
+   margin-left: 50%;
+   margin-top: 50%;
+   -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.active-time-label {
+  margin: 0px;
+  font-size: .8em;
+}
+
+#active-time {
+  margin: 0px;
+}
+
+.cost-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

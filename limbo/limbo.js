@@ -141,8 +141,8 @@ function sendRequest(data) {
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
         console.log(formObj);
-        $.post(API_URL,formObj).then(function(result) {
-            console.log(result);
+        $.post(API_URL, formObj).then(function(result) {
+            window.location.replace("http://localhost:8080/dashboard/dashboard")
         }).catch(function(error) {
             console.error(error);
         });
