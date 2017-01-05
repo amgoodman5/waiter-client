@@ -79,6 +79,10 @@ button#drive_btn {
   align-items: center;
 }
 
+.job-request {
+  padding: .75em;
+}
+
 .contact-card {
   display: flex;
   align-items: center;
