@@ -4,7 +4,7 @@ $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
     jobs.forEach((job) => {
-      var card = `<div class = "billboard-card"><h4>Job: ${job.id}</h4> <h4>Date: ${job.date}</h4>
+      var card = `<div class = "billboard-card"> <h4>Job: ${job.id}</h4> <h4>Date: ${job.date}</h4>
           <h4>Time: ${job.time}</h4>
           <h4>Payout: $${job.rate}.00</h4>
           <h4>Starts: ${job.start_time}</h4>

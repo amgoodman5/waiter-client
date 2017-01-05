@@ -7,6 +7,7 @@ $('.carousel').carousel()
 
 
 
+
 // /*appearence*/
 //     $(window).scroll( function(){
 //
