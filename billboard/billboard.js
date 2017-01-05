@@ -4,10 +4,23 @@ $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
     jobs.forEach((job) => {
-      $(".card-title").append(`${job.id}`)
+      $(".container").append(`<h4>${job.id}</h4> <h4>${job.date}</h4> <h4>${job.time}</h4> <h4>$${job.rate}</h4>`)
+      });
+      // `<div class="card-block" <h4 class="card-title" ${result.name}</h4> <p class="card-text"></p> `;
+      //   $('.collection').append(menu);
+
+      //
+      // <img class="card-img-top" src="..." alt="Card image cap">
+      // <div class="card-block">
+      //   <h4 class="card-title"></h4>
+      //   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      //   <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
   });
+
 });
-});
+
 
 function getJob(){
   return $.get(`${JOB_URL}/api`)
