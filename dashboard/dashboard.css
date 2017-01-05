@@ -43,10 +43,15 @@ button#drive_btn {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 0px;
 }
 
 .accordion-job {
   width: 100%;
+}
+
+.request-header {
+  text-align: center;
 }
 
 .job-headers {
@@ -60,6 +65,31 @@ button#drive_btn {
   align-items: center;
   justify-content: center;
   height: 7em;
+}
+
+#card-header {
+  margin: 0px;
+  padding: .75em 0em;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-block {
+  width: 100%;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-group-item {
+  border-top: 1px solid #ddd!important;
+  border-bottom: 1px solid #ddd!important;
+  border-right: none!important;
+  border-left: none!important;
+  border-radius: 0px!important;
 }
 
 .image-holder {
