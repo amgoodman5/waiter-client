@@ -23,6 +23,12 @@ body {
     box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.33);
     border-radius: 5px;
 }
+#buttons {
+    
+    background-color: orange;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
+}
 @media (max-width: 800px) {
   .sign-in-main {
       max-width: 100%;
