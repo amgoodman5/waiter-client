@@ -1,3 +1,5 @@
+const CLIENT_URL = getUrl();
+
 $(document).ready(function() {
     sendRequest();
 });
@@ -142,7 +144,7 @@ function sendRequest(data) {
         formObj.end_time = $('#time-input').val();
         console.log(formObj);
         $.post(API_URL, formObj).then(function(result) {
-            window.location.replace("http://localhost:8080/dashboard/dashboard")
+            window.location.replace(`${CLIENT_URL}/dashboard/dashboard.html`)
         }).catch(function(error) {
             console.error(error);
         });
@@ -158,3 +160,11 @@ function nameSplit() {
     let name = $('#pac-input').val().split(',')[0];
     return name;
 }
+
+function getUrl(){
+  if (window.location.host.indexOf('localhost') != -1) {
+    return 'http://localhost:8080';
+  } else {
+    return 'https://line-waiter.firebaseapp.com';
+  }
+};
