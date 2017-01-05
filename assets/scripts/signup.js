@@ -1,3 +1,5 @@
+const SERVER_URL = getUrl();
+
 $( document ).ready(function() {
   $( "#signup-form" ).on( "submit", function( event ) {
     event.preventDefault();
@@ -9,7 +11,7 @@ $( document ).ready(function() {
 function postNewUser(formData){
   //error keeps triggering but it posts to db... is it because it is asynchronous?
   var request = $.ajax({
-    url: 'http://localhost:3000/users',
+    url: `${SERVER_URL}/users`,
     method: 'POST',
     data: formData,
     dataType: 'application/json',
@@ -23,3 +25,11 @@ function postNewUser(formData){
     }
   });
 }
+
+function getUrl(){
+  if (window.location.host.indexOf('localhost') != -1) {
+    return 'http://localhost:3000';
+  } else {
+    return 'https://line-waiter-db.herokuapp.com';
+  }
+};
