@@ -1,5 +1,12 @@
 const SERVER_URL = getUrl();
 
+$.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $(document).ready(function() {
     $('.collapse').collapse();
     getJob()

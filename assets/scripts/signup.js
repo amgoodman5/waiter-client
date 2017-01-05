@@ -1,6 +1,13 @@
 const SERVER_URL = getUrl1();
 const CLIENT_URL = getUrl2();
 
+$.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $(document).ready(function() {
     $("#signup-form").on("submit", function(event) {
         event.preventDefault();
