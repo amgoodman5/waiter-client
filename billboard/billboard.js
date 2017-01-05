@@ -9,7 +9,7 @@ $(document).ready(()=>{
           <h4>Payout: $${job.rate}.00</h4>
           <h4>Starts: ${job.start_time}</h4>
           <h4> <a href="#" class="card-link">WAIT UP!</a></div>`;
-       $(".cards").append(card)
+       $(".job_cards").append(card)
       });
 
 
