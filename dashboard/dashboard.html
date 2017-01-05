@@ -38,37 +38,76 @@
         </nav>
         <main class="main">
             <div class="container">
-                <p class="limbo-tagline">Welcome to the Requester Dashboard</p>
+                <!-- <p class="limbo-tagline">Welcome to the Requester Dashboard</p> -->
+            </div>
+            <div class="row job-request">
+                <a class="btn btn-primary" href="/limbo/limbo">
+                    Make a New Request
+                </a>
             </div>
             <div class="accordion-job">
+                <p>Active Requests</p>
                 <div id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="card">
                         <div class="card-header" role="tab" id="headingTwo">
-                            <h5 class="mb-0">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Snooze Eatery
-                                </a>
-                            </h5>
+                            <div class="row">
+                                <div class="col-xs-4 job-headers">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Snooze Eatery
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div class="col-xs-4 job-headers">
+                                    <h5 class="mb-0">
+                                        <p>Jan 12th</p>
+                                    </h5>
+                                </div>
+                                <div class="col-xs-4 job-headers">
+                                    <h5 class="mb-0">
+                                        <p>Requested</p>
+                                    </h5>
+                                </div>
+                            </div>
                         </div>
                         <div id="collapseTwo" class="collapse in" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="card-block">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Status</li>
-                                    <li class="list-group-item">Elapsed Time</li>
-                                    <li class="list-group-item">Waiter Contact Information</li>
-                                </ul>
+                                <div class="col-xs-12">
+                                    <div class="list-group list-group-flush">
+                                        <div class="row list-group-item">
+                                            <div class="col-xs-6">
+                                                <p class="active-time-label">Active Waiting Time</p>
+                                                <h3 id="active-time">22 minutes</h3>
+                                            </div>
+                                            <div class="col-xs-6 cost-column">
+                                                <p class="active-time-label">Current Cost</p>
+                                                <h3 id="active-time">$2.02</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row contact-card list-group-item">
+                                            <div class="col-xs-4 image-holder">
+                                                <img
+                                                    src="https://static1.squarespace.com/static/511526cde4b067782b69109c/517aa359e4b0ab81ac8d931c/517aa396e4b041a7f26623d5/1366991956677/05-corporate-headshot-photo-WBEZ+-+Chicago+Public+Media_Edwards_Steve_Programming_120328_1210.psd.JPG-1500px.JPG"
+                                                    alt=""
+                                                    class="contact-img">
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="">Rodney Dangerfield</p>
+                                                <p class="">(321) 231-3111</p>
+                                                <p class="">
+                                                    <a href="#">Send Message</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row job-request">
-                <p>
-                    <a class="btn btn-primary" href="/limbo/limbo">
-                        Make a New Request
-                    </a>
-                </p>
-            </div>
+
             <div class="row current-job"></div>
             <div class="row past-job"></div>
         </main>
