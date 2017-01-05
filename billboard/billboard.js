@@ -13,20 +13,6 @@ $(document).ready(()=>{
       });
 
 
-      // var card =`<div class = "container" <div class="card" <div class="card-block" <h4 class="card-title"
-      // // <p>${job.time}</p> <p>${job.rate}</p>`
-      //
-      // `<h4>${job.id}</h4> <h4>${job.date}</h4>
-      //   <h4>${job.time}</h4>
-      //   <h4>$${job.rate}</h4>
-      //   <h4>${job.star_time}</h4>
-      //   <h4>`
-      // //
-
-
-
-
-
   });
 
 });
