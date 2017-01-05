@@ -9,7 +9,7 @@ $( document ).ready(function() {
 function postNewUser(formData){
   //error keeps triggering but it posts to db... is it because it is asynchronous?
   var request = $.ajax({
-    url: 'https://line-waiter-db.herokuapp.com/users',
+    url: 'http://localhost:3000/users',
     method: 'POST',
     data: formData,
     dataType: 'application/json',

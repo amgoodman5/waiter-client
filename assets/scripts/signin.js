@@ -1,25 +1,17 @@
 $( document ).ready(function() {
-  $( "#signup-form" ).on( "submit", function( event ) {
+  $( "#signin-form" ).on( "submit", function( event ) {
     event.preventDefault();
-    var userData = $( this ).serialize()
-    postNewUser(userData);
+    var userData = $( this ).serialize();
+    console.log(userData);
+    checkUser(userData);
   });
 });
 
-function postNewUser(formData){
+function checkUser(formData){
   //error keeps triggering but it posts to db... is it because it is asynchronous?
-  var request = $.ajax({
-    url: 'https://line-waiter-db.herokuapp.com/users',
-    method: 'POST',
-    data: formData,
-    dataType: 'application/json',
-    success:function(msg){
-      console.log(msg);
-      console.log('done!');
-    },
-    error:function(msg){
-      console.log('error!');
-      console.log(msg);
-    }
+  $.post('http://localhost:3000/userAPI',formData)
+  .then((data)=>{
+    window.location.replace("http://localhost:8080");
+    console.log(data);
   });
 }
