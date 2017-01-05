@@ -33,7 +33,7 @@ a#buttons {
 
 .parallax {
     /* The image used */
-    background-image: url("../assets/line.jpg");
+    background-image: url("../images/line.jpg");
 
     /* Set a specific height */
      height: 50%;
