@@ -30,11 +30,30 @@ button#drive_btn {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4em;
+  margin-top: 3.6em;
+}
+.outer-jumbotron {
+  z-index: 1;
+}
+.jumbotron {
+  width: 100%;
+  height: 10em;
+  z-index: -1;
+  background-image: url(https://www.bevspot.com/wp-content/uploads/2015/10/bigstock-Empty-Wood-Table-And-Coffee-Sh-83334128-1440x887.jpg);
+  background-size: 40em;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 60% -28%;
+  padding: 0px;
+  margin: 0px!important;
+  text-align: center;
 }
 
 .limbo-tagline {
-  font-size: 2em;
+  width: 100%;
+  color: #fff;
+  padding-top: .25em;
+  font-size: 2.5em!important;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
