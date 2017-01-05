@@ -21,8 +21,9 @@ a.navbar-brand {
   border-color: white;
 }
 
-button#drive_btn {
-    margin-left: 1em!important;
+.nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main {
