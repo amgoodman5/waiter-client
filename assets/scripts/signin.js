@@ -21,9 +21,9 @@ $( document ).ready(function() {
 
 function checkUser(formData){
   //error keeps triggering but it posts to db... is it because it is asynchronous?
-  $.post(`${SERVER_URL}/userAPI`,formData)
+  $.post(`${SERVER_URL}/authAPI`,formData)
   .then((data)=>{
-    // window.location.replace(`${CLIENT_URL}`);
+    window.location.replace(`${CLIENT_URL}/dashboard.html`);
     console.log(data);
   });
 }
