@@ -70,7 +70,7 @@
                         <div class="row" role="tab" id="card-header">
                             <div class="col-xs-5 job-headers">
                                 <h5>
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{this.job_id}}" aria-expanded="false" aria-controls="collapseTwo">
                                         {{this.name}}
                                     </a>
                                 </h5>
@@ -86,7 +86,7 @@
                                 </h5>
                             </div>
                         </div>
-                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="card-header">
+                        <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
                             <div class="card-block">
                                 <div class="list-group list-group">
                                     <div class="row list-group-item">
@@ -123,7 +123,7 @@
                                             <p class="">{{this.name}}</p>
                                             <p class="">{{this.address}}</p>
                                             <p class="">
-                                                {{this.phone_number}}
+                                                {{this.time}}
                                             </p>
                                         </div>
                                     </div>
