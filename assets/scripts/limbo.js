@@ -144,7 +144,7 @@ function sendRequest(data) {
         formObj.end_time = $('#time-input').val();
         console.log(formObj);
         $.post(`${API_URL}/users/jobs/newjob`, formObj).then(function(result) {
-            window.location.replace(`${CLIENT_URL}/dashboard.html`)
+            window.location.replace(`${CLIENT_URL}/dashboard.html`);
         }).catch(function(error) {
             console.error(error);
         });
@@ -167,7 +167,7 @@ function getUrl1() {
     } else {
         return 'https://line-waiter.firebaseapp.com';
     }
-};
+}
 
 function getUrl2() {
     if (window.location.host.indexOf('localhost') != -1) {
@@ -175,4 +175,4 @@ function getUrl2() {
     } else {
         return 'https://line-waiter-db.herokuapp.com';
     }
-};
+}
