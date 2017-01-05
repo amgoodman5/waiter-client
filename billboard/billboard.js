@@ -4,17 +4,27 @@ $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
     jobs.forEach((job) => {
-      $(".container").append(`<h4>${job.id}</h4> <h4>${job.date}</h4> <h4>${job.time}</h4> <h4>$${job.rate}</h4>`)
+      var card = `<div class = "billboard-card"><h4>Job: ${job.id}</h4> <h4>Date: ${job.date}</h4>
+          <h4>Time: ${job.time}</h4>
+          <h4>Payout: $${job.rate}.00</h4>
+          <h4>Starts: ${job.start_time}</h4>
+          <h4> <a href="#" class="card-link">WAIT UP!</a></div>`;
+       $(".cards").append(card)
       });
-      // `<div class="card-block" <h4 class="card-title" ${result.name}</h4> <p class="card-text"></p> `;
-      //   $('.collection').append(menu);
 
+
+      // var card =`<div class = "container" <div class="card" <div class="card-block" <h4 class="card-title"
+      // // <p>${job.time}</p> <p>${job.rate}</p>`
       //
-      // <img class="card-img-top" src="..." alt="Card image cap">
-      // <div class="card-block">
-      //   <h4 class="card-title"></h4>
-      //   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      //   <a href="#" class="btn btn-primary">Go somewhere</a>
+      // `<h4>${job.id}</h4> <h4>${job.date}</h4>
+      //   <h4>${job.time}</h4>
+      //   <h4>$${job.rate}</h4>
+      //   <h4>${job.star_time}</h4>
+      //   <h4>`
+      // //
+
+
+
 
 
   });

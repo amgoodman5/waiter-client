@@ -18,11 +18,20 @@ a.navbar-brand {
 button#drive_btn {
     margin-left: 1em!important;
 }
-
-.main{
-  
-  min-height:300px;
+/*card*/
+.top {
+    min-height: 4em;
 }
-.card {
-    margin-top: 25%;
+section.cards {
+    padding: 3%;
+}
+.billboard-card {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 18px 1px grey;
+    justify-content: space-around;
 }
