@@ -23,7 +23,7 @@ function getUrl() {
 }
 
 function getJob() {
-    return $.get(`${SERVER_URL}/userAPI/1/job`);
+    return $.get(`${SERVER_URL}/userAPI/job`);
 }
 
 function appendJob(data) {
@@ -39,5 +39,5 @@ function appendJob(data) {
 }
 
 function errorFunction() {
-    alert('An Error Occured');
+    window.location = '/signin.html';
 }
