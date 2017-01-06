@@ -28,6 +28,8 @@ function getJob() {
 
 function appendJob(data) {
     console.log(data);
+    let now = moment();
+    // let newDate = moment('2013-11-16', 'YYYY-MM-DD').format('MM-YYYY');
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
@@ -38,6 +40,6 @@ function appendJob(data) {
     // return user.id;
 }
 
-function errorFunction() {
-    window.location = '/signin.html';
+function errorFunction(err) {
+    console.log('error', err);
 }
