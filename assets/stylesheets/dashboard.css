@@ -63,6 +63,15 @@ a.navbar-brand {
   margin: 0px;
 }
 
+.accordion-header {
+  display: flex;
+  flex-direction: row;
+  background-color: #E8EBF7;
+  padding-top: 1em;
+  padding-bottom: 0;
+  font-size: .8em;
+}
+
 .accordion-job {
   display: flex;
   flex-direction: column;
@@ -87,7 +96,7 @@ a.navbar-brand {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7em;
+  height: 10em;
 }
 
 #card-header {
