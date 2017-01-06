@@ -33,27 +33,30 @@ a.navbar-brand {
   justify-content: center;
   margin-top: 3.6em;
 }
-.outer-jumbotron {
-  z-index: 1;
-}
+
 .jumbotron {
   width: 100%;
   height: 10em;
-  z-index: -1;
-  background-image: url(https://www.bevspot.com/wp-content/uploads/2015/10/bigstock-Empty-Wood-Table-And-Coffee-Sh-83334128-1440x887.jpg);
-  background-size: 40em;
+  background-image: url("../images/5.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 60% -28%;
-  padding: 0px;
+  background-position: center -11em;
+  padding: 0px!important;
   margin: 0px!important;
   text-align: center;
 }
 
+.job-request {
+  margin: 0!important;
+  padding: 0!important;
+}
+
+
 .limbo-tagline {
   width: 100%;
   color: #fff;
-  padding-top: .25em;
+  padding-top: .75em;
   font-size: 2.5em!important;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -66,7 +69,18 @@ a.navbar-brand {
   margin: 0px;
 }
 
+.accordion-header {
+  display: flex;
+  flex-direction: row;
+  background-color: #E8EBF7;
+  padding-top: 1em;
+  padding-bottom: 0;
+  font-size: .8em;
+}
+
 .accordion-job {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -76,19 +90,41 @@ a.navbar-brand {
 
 .job-headers {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.job-request {
-  padding: .75em;
-}
 
 .contact-card {
+  display: flex!important;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 8em;
+}
+
+.place {
+  background-color: #FFF7DC!important;
+}
+
+.waiter {
+  background-color: #ECF3FF!important;
+}
+
+.contact-col {
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 7em;
+}
+
+.contact-col .row {
+  padding: 0;
+}
+
+.contact-icon {
+  padding-right: .5em;
 }
 
 #card-header {
@@ -129,13 +165,13 @@ a.navbar-brand {
    -webkit-transform: translateY(-50%) translateX(-50%);
 }
 
-.active-time-label {
+.-label {
   margin: 0px;
   font-size: .8em;
 }
 
-#active-time {
-  margin: 0px;
+.active-time {
+  margin: 0px!important;
 }
 
 .cost-column {

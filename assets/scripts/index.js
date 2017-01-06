@@ -1,5 +1,12 @@
 // jquery style stuff
 /*carousel*/
+$.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $( document ).ready(function() {
 $('.carousel').carousel()
 

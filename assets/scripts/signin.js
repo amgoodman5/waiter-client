@@ -8,37 +8,38 @@ $.ajaxSetup({
     }
 });
 
-$( document ).ready(function() {
-  $( "#signin-form" ).on( "submit", function( event ) {
-    event.preventDefault();
-    var userData = $( this ).serialize();
-    console.log(userData);
-    checkUser(userData);
-  });
+$(document).ready(function() {
+    $("#signin-form").on("submit", function(event) {
+        event.preventDefault();
+        var userData = $(this).serialize();
+        console.log(userData);
+        checkUser(userData);
+    });
 });
 
 
 
-function checkUser(formData){
-  //error keeps triggering but it posts to db... is it because it is asynchronous?
-  $.post(`${SERVER_URL}/authAPI`,formData)
-  .then((data)=>{
-    window.location.replace(`${CLIENT_URL}/dashboard.html`);
-    console.log(data);
-  });
+function checkUser(formData) {
+    //error keeps triggering but it posts to db... is it because it is asynchronous?
+    $.post(`${SERVER_URL}/authAPI`, formData)
+        .then((data) => {
+            // window.location.replace(`${CLIENT_URL}/dashboard.html`);
+            console.log(data);
+        });
 }
 
-function getUrl1(){
-  if (window.location.host.indexOf('localhost') != -1) {
-    return 'http://localhost:3000';
-  } else {
-    return 'https://line-waiter-db.herokuapp.com';
-  }
+function getUrl1() {
+    if (window.location.host.indexOf('localhost') != -1) {
+        return 'http://localhost:3000';
+    } else {
+        return 'https://line-waiter-db.herokuapp.com';
+    }
 };
-function getUrl2(){
-  if (window.location.host.indexOf('localhost') != -1) {
-    return 'http://localhost:8080';
-  } else {
-    return 'https://line-waiter.firebaseapp.com/';
-  }
+
+function getUrl2() {
+    if (window.location.host.indexOf('localhost') != -1) {
+        return 'http://localhost:8080';
+    } else {
+        return 'https://line-waiter.firebaseapp.com';
+    }
 };

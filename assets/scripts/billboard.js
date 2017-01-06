@@ -1,5 +1,12 @@
 const JOB_URL = getUrl();
 
+$.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
