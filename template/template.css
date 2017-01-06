@@ -4,6 +4,8 @@ body {
     flex-direction: column;
 }
 
+/*nav*/
+
 a.navbar-brand {
   color:white!important;
 }
@@ -25,6 +27,8 @@ a.navbar-brand {
   display: flex;
   justify-content: space-between;
 }
+
+/*jumbotron*/
 
 .main {
   display: flex;
@@ -67,4 +71,20 @@ a.navbar-brand {
   display: flex;
   justify-content: center;
   margin: 0px;
+}
+
+/*footer*/
+
+footer {
+    padding-top: 1%;
+    height: 3em;
+    background: #2C3E50;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+footer p {
+    color: white;
 }
