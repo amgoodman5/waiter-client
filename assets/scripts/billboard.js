@@ -42,7 +42,7 @@ var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
 
                 });
                   $.get(`${JOB_URL}/users/jobs`)
-                 .then(function() {
+                 .then(()=> {
                     window.location.replace(`${JOB_URL2}/waiter.html`);
                 }).catch(function(error) {
                     console.error(error);
