@@ -25,23 +25,24 @@ function cleanData(data) {
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let date = moment(element.date).format('MM-DD-YYYY')
-        let start = moment(element.start_time, 'hh:mm:ss').format('hh:mm');
-        let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY hh:mm');
-        let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY hh:mm');
+        let start = moment(element.start_time, 'H:mm:ss').format('H:mm');
+        let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY H:mm');
+        let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY H:mm');
         let duration = moment.duration(now - datetime);
         console.log(duration);
-        let durationClean = moment(duration._data).format("h[h] m[m]")
+        let durationClean = moment(duration._data).format("H[h] m[m]")
         if (duration > 0) {
             element.active_time = durationClean;
         } else {
             element.active_time = "Not Started";
         }
         if (element.active_time != 'Not Started') {
-            element.cost = duration._milliseconds / 60000 * 0.1;
+            let cost = duration._milliseconds / 60000 * 0.1;
+            element.cost = cost.toFixed(2);
         } else {
             element.cost = 0;
         }
-        element.start_time = moment(element.start_time, 'hh:mm:ss').format('h:mma');
+        element.start_time = moment(element.start_time, 'H:mm:ss').format('h:mma');
         element.date = date;
     });
     return cleanArr;
@@ -61,8 +62,8 @@ function appendJob(clean) {
 
 function errorFunction(err) {
     if (err.status === 401) {
-      window.location = '/signin.html';
+        window.location = '/signin.html';
     } else {
-      console.log(err);
+        console.log(err);
     }
 }
