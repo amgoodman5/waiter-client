@@ -30,27 +30,31 @@ function getJob() {
 function cleanData(data) {
     let cleanArr = data;
     cleanArr.forEach(function(element) {
-        let now = moment(moment(), 'HH:mm');
-        let start = moment(element.start_time, 'HH:mm');
-        let duration = moment.duration(now - start).minutes();
+        let date = moment(element.date).format('MM-DD-YYYY')
+        let start = moment(element.start_time, 'hh:mm:ss').format('hh:mm');
+        let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY hh:mm');
+        let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY hh:mm');
+        let duration = moment.duration(now - datetime);
         console.log(duration);
+        let durationClean = moment(duration._data).format("h[h] m[m]")
         if (duration > 0) {
-            element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('m');
+            element.active_time = durationClean;
         } else {
             element.active_time = "Not Started";
         }
         if (element.active_time != 'Not Started') {
-            element.cost = element.active_time * 0.5;
+            element.cost = duration._milliseconds / 60000 * 0.1;
         } else {
             element.cost = 0;
         }
         element.start_time = moment(element.start_time, 'hh:mm:ss').format('h:mma');
+        element.date = date;
     });
     return cleanArr;
 }
 
 function appendJob(clean) {
-    console.log(clean);
+    // console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
