@@ -99,7 +99,14 @@ div#card-header {
   text-align: center;
 }
 
-
+.main {
+    padding-bottom: 14%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.6em;
+}
 footer {
     padding-top: 1%;
     height: 3em;
