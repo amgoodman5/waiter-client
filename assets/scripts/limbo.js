@@ -1,12 +1,7 @@
 const CLIENT_URL = getUrl1();
 const API_URL = getUrl2();
 
-$.ajaxSetup({
-    crossDomain: true,
-    xhrFields: {
-        withCredentials: true
-    }
-});
+
 
 $(document).ready(function() {
     sendRequest();
@@ -154,7 +149,11 @@ function sendRequest() {
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);
         }).catch(function(error) {
-            console.error(error);
+          if (error.status === 401) {
+            window.location = '/signin.html';
+          } else {
+            console.log(error);
+          }
         });
     });
 }

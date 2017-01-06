@@ -1,12 +1,5 @@
 const JOB_URL = getUrl();
 
-$.ajaxSetup({
-    crossDomain: true,
-    xhrFields: {
-        withCredentials: true
-    }
-});
-
 $(document).ready(() => {
     getJob()
         .then((jobs) => {
@@ -33,7 +26,8 @@ $(document).ready(() => {
                     dataType: "application/json"
                 });
             })
-        });
+        })
+        .catch(errorFunction);
 });
 
 //     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -55,3 +49,11 @@ function getUrl() {
 //   })
 //   getUrl()
 // })
+
+function errorFunction(err) {
+    if (err.status === 401) {
+      window.location = '/signin.html';
+    } else {
+      console.log(err);
+    }
+}
