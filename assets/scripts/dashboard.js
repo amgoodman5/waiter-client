@@ -30,10 +30,16 @@ function getJob() {
 function cleanData(data) {
     let cleanArr = data;
     cleanArr.forEach(function(element) {
+        let now = moment(moment(), 'HH:mm');
+        let start = moment(element.start_time, 'HH:mm');
+        let duration = moment.duration(now - start).minutes();
+        if (duration > 0) {
+            element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('hh:mm');
+        } else {
+            element.active_time = "Not Started";
+        }
         element.start_time = moment(element.start_time, 'hh:mm:ss').format('h:mma');
-        console.log(element.start_time);
     });
-    // console.log(cleanArr);
     return cleanArr;
 }
 
