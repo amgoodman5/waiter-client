@@ -10,21 +10,29 @@ $.ajaxSetup({
 $(document).ready(()=>{
   getJob()
   .then((jobs)=>{
-    console.log(jobs)
+
     jobs.forEach((job) => {
-      var card = `<div class = "billboard-card">
-          <h4>Location: ${job.name}</h4>
-          <h4>Address: ${job.address}</h4>
-          <h4>Starts: ${job.start_time}</h4>
-          <h4> <a href="#" class="card-link">WAIT UP!</a></div>`;
+      var card = `<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default"> <div class="panel-heading" role="tab" id="headingOne">
+       <h4 class="panel-title"> <a role="button" data-toggle="collapsed" data-parent="#accordion" href="${job.id}" aria-expanded="true" aria-controls="collapseOne">
+       <h4>Location: ${job.name}</a></h4></div>
+      <div id="${job.id}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="${job.id}">
+      <div class="panel-body">  <h4>Address: ${job.address}</h4><h4>Starts: ${job.start_time}</h4>
+      <h4> <a href="#" class="card-link">WAIT UP!</a></div> <div class="panel-body">  </div>  </div></div>`;
+
+
+
        $(".job_cards").append(card)
+
+
+
+
+
       });
-
-
   });
-
 });
 
+//     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 
 function getJob(){
   return $.get(`${JOB_URL}/users/jobs`)

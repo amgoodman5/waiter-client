@@ -123,7 +123,7 @@ function createContact(places) {
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${places[0].formatted_address}</li>
-        <li class="list-group-item">${places[0].formatted_phone_number}</li>
+        <li class="list-group-item phone">${places[0].formatted_phone_number}</li>
         <li class="list-group-item"><a href="#" class="card-link">${places[0].website}</a></li>
       </ul>
     </div>`;
@@ -135,7 +135,7 @@ function createContact(places) {
     }
 }
 
-function sendRequest(data) {
+function sendRequest() {
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
@@ -145,10 +145,11 @@ function sendRequest(data) {
         formObj.lat = 123;
         formObj.long = 234;
         formObj.time = $('#time-input').val();
-        formObj.status = 'requested';
+        formObj.status = 'Requested';
         formObj.rate = 2;
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
+        formObj.phone = $('.phone').html();
         console.log(formObj);
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);
