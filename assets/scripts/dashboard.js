@@ -33,8 +33,9 @@ function cleanData(data) {
         let now = moment(moment(), 'HH:mm');
         let start = moment(element.start_time, 'HH:mm');
         let duration = moment.duration(now - start).minutes();
+        console.log(duration);
         if (duration > 0) {
-            element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('hh:mm');
+            element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('m [minutes]');
         } else {
             element.active_time = "Not Started";
         }
