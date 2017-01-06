@@ -10,6 +10,7 @@ $.ajaxSetup({
 $(document).ready(function() {
     $('.collapse').collapse();
     getJob()
+        .then(cleanData)
         .then(appendJob)
         .catch(errorFunction);
 });
@@ -26,14 +27,22 @@ function getJob() {
     return $.get(`${SERVER_URL}/userAPI/job`);
 }
 
-function appendJob(data) {
-    console.log(data);
-    let now = moment();
-    // let newDate = moment('2013-11-16', 'YYYY-MM-DD').format('MM-YYYY');
+function cleanData(data) {
+    let cleanArr = data;
+    cleanArr.forEach(function(element) {
+        element.start_time = moment(element.start_time, 'hh:mm:ss').format('h:mma');
+        console.log(element.start_time);
+    });
+    // console.log(cleanArr);
+    return cleanArr;
+}
+
+function appendJob(clean) {
+    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
-        data
+        clean
     };
     let html = template(context);
     $('.accordion-job').html(html);
