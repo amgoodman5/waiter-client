@@ -1,11 +1,5 @@
 const SERVER_URL = getUrl();
 
-$.ajaxSetup({
-    crossDomain: true,
-    xhrFields: {
-        withCredentials: true
-    }
-});
 
 $(document).ready(function() {
     $('.collapse').collapse();
@@ -66,5 +60,9 @@ function appendJob(clean) {
 }
 
 function errorFunction(err) {
-    console.log('error', err);
+    if (err.status === 401) {
+      window.location = '/signin.html';
+    } else {
+      console.log(err);
+    }
 }

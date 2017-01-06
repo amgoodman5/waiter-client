@@ -1,13 +1,6 @@
 const JOB_URL = getUrl();
 const JOB_URL2 = getUrl1()
 
-$.ajaxSetup({
-    crossDomain: true,
-    xhrFields: {
-        withCredentials: true
-    }
-});
-
 $(document).ready(() => {
     getJob()
         .then((jobs) => {
@@ -48,9 +41,10 @@ var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
                     console.error(error);
                 });
             })
-        });
+        })
+        .catch(errorFunction);
 });
-
+  
 
 
 function getJob() {
@@ -64,6 +58,22 @@ function getUrl() {
         return 'https://line-waiter-db.herokuapp.com';
     }
 };
+
+// $.get(JOB_URL).then(job =>{
+//   job.forEach((job) => {
+//     console.log(job);
+//   })
+//   getUrl()
+// })
+
+function errorFunction(err) {
+    if (err.status === 401) {
+      window.location = '/signin.html';
+    } else {
+      console.log(err);
+    }
+}
+
 function getUrl1() {
     if (window.location.host.indexOf('localhost') != -1) {
         return 'http://localhost:8080';
