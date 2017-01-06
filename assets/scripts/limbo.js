@@ -5,6 +5,8 @@ const API_URL = getUrl2();
 
 $(document).ready(function() {
     sendRequest();
+    dateInput();
+    timeInput();
 });
 
 function initAutocomplete() {
@@ -166,6 +168,16 @@ function addressSplit() {
 function nameSplit() {
     let name = $('#pac-input').val().split(',')[0];
     return name;
+}
+
+function dateInput() {
+    let today = moment(moment()).format('YYYY-MM-DD');
+    return $('#date-input').val(today);
+}
+
+function timeInput() {
+    let now = moment(moment()).format('hh:mm');
+    return $('#time-input').val(now);
 }
 
 function getUrl1() {

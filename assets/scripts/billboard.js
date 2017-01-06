@@ -1,19 +1,27 @@
 const JOB_URL = getUrl();
+const JOB_URL2 = getUrl1()
 
 $(document).ready(() => {
     getJob()
         .then((jobs) => {
             console.log(jobs);
             jobs.forEach((job) => {
-                var card = `<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel panel-default"> <div class="panel-heading" role="tab" id="headingOne">
-       <h4 class="panel-title"> <a role="button" data-toggle="collapsed" data-parent="#accordion" href="${job.id}" aria-expanded="true" aria-controls="collapseOne">
-       <h4>Location: ${job.name}</a></h4></div>
-      <div id="${job.id}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="${job.id}">
-      <div class="panel-body">  <h4>Address: ${job.address}</h4><h4>Starts: ${job.start_time}</h4>
-      <h4> <button data-id="${job.id}"class="btn btn-warning card-link accept-button" type="submit">Accept Job</button></div> <div class="panel-body">  </div>  </div></div>`;
+var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="card"><div class="row" role="tab" id="card-header">
+            <div class=" job-headers"><h2><a class="collapsed" data-toggle="collapse"
+            data-target="#${job.id}" aria-expanded="false" aria-controls="collapseExample">
+            <h4>${job.name}</h4></a>  <div class="collapse" id="${job.id}">
+            <div class="card card-block"><div class="panel-body"><h4>Address: ${job.address}</h4>
+            <h4>Starts: ${job.start_time}</h4><h4>Date: ${job.date}</h4>
+            <button data-id="${job.id}"class="btn btn-warning card-link accept-button"
+            type="submit">Accept Job</button></div>
+             <div class="panel-body"></div>
+            </div></div></div></div></div></div>`
                 $(".job_cards").append(card)
             });
+
+
+
             $('.accept-button').on('click', function(event) {
                 console.log(this.dataset.id);
                 var jobObj = {
@@ -24,13 +32,20 @@ $(document).ready(() => {
                     method: "PUT",
                     data: jobObj,
                     dataType: "application/json"
+
+                });
+                  $.get(`${JOB_URL}/users/jobs`)
+                 .then(()=> {
+                    window.location.replace(`${JOB_URL2}/waiter.html`);
+                }).catch(function(error) {
+                    console.error(error);
                 });
             })
         })
         .catch(errorFunction);
 });
 
-//     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
 
 function getJob() {
     return $.get(`${JOB_URL}/users/jobs`)
@@ -43,6 +58,7 @@ function getUrl() {
         return 'https://line-waiter-db.herokuapp.com';
     }
 };
+
 // $.get(JOB_URL).then(job =>{
 //   job.forEach((job) => {
 //     console.log(job);
@@ -55,5 +71,13 @@ function errorFunction(err) {
       window.location = '/signin.html';
     } else {
       console.log(err);
+    }
+}
+
+function getUrl1() {
+    if (window.location.host.indexOf('localhost') != -1) {
+        return 'http://localhost:8080';
+    } else {
+        return 'https://line-waiter.firebaseapp.com';
     }
 }
