@@ -33,7 +33,10 @@ a#buttons {
     border: none;
     box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
 }
-
+a#buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s  ;
+}
 
 .parallax {
     /* The image used */
