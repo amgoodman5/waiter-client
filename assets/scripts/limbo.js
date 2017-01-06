@@ -1,6 +1,13 @@
 const CLIENT_URL = getUrl1();
 const API_URL = getUrl2();
 
+$.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $(document).ready(function() {
     sendRequest();
 });
