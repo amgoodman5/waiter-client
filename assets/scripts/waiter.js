@@ -11,8 +11,8 @@ $(document).ready(function() {
     $('.collapse').collapse();
     getJob()
         .then(cleanData)
-        .then(appendJob)
-        // .catch(errorFunction);
+        .then(appendJob);
+    // .catch(errorFunction);
 });
 
 function getUrl() {
@@ -58,17 +58,19 @@ function appendJob(clean) {
     $('.accordion-job').html(html);
     // return user.id;
 
-    updateStatus()
+    updateStatus();
+    totalWait();
 }
 
 function updateStatus() {
     $('.select-list').on('change', function(event) {
         let jobID = $(this).find("option:selected").data('id');
         let selected = $(this).find("option:selected").html();
-        console.log(jobID);
+        let timestamp = moment().format('MM-DD-YYYY HH:mm');
         let jobObj = {
             id: jobID,
-            status: selected
+            status: selected,
+            starting_time: timestamp
         };
 
         $.ajax({
@@ -80,6 +82,17 @@ function updateStatus() {
     });
 }
 
+function totalWait() {
+    $('#wait-input').on('change', function(event) {
+        let jobID = this.dataset.id
+        let total = $('#wait-input').val();
+        console.log(total);
+        let jobObj = {
+            id: jobID,
+            totalWait: total
+        };
+    });
+}
 
 function errorFunction(err) {
     console.log('error', err);
