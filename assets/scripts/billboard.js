@@ -6,7 +6,7 @@ $(document).ready(() => {
         .then((jobs) => {
             console.log(jobs);
             jobs.forEach((job) => {
-var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
+            var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="card"><div class="row" role="tab" id="card-header">
             <div class=" job-headers"><h2><a class="collapsed" data-toggle="collapse"
             data-target="#${job.id}" aria-expanded="false" aria-controls="collapseExample">
@@ -44,7 +44,7 @@ var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
         })
         .catch(errorFunction);
 });
-  
+
 
 
 function getJob() {
