@@ -60,7 +60,7 @@
                 <div class="row accordion-header">
                     <div class="col-xs-5 accordion-label">Place</div>
                     <div class="col-xs-3 accordion-label">Date</div>
-                    <div class="col-xs-3 accordion-label">Status</div>
+                    <div class="col-xs-3 accordion-label">Time</div>
                 </div>
                 <div class="accordion-job" id="active-job"></div>
                 <div class="row current-job"></div>
@@ -95,9 +95,19 @@
                                 </h5>
                             </div>
                         </div>
-                        <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
+                        <div id="{{this.job_id}}" class="collapse {{this.status}}" role="tabpanel" aria-labelledby="card-header">
                             <div class="card-block">
-                                <div class="list-group list-group">
+                                <div class="list-group">
+                                    <div class="row list-group-item">
+                                        <div class="col-xs-6">
+                                            <p class="active-time-label">Active Waiting Time</p>
+                                            <h3 class="active-time">{{this.active_time}}</h3>
+                                        </div>
+                                        <div class="col-xs-6 cost-column">
+                                            <p class="active-time-label">Status</p>
+                                            <h3 class="active-time">{{this.status}}</h3>
+                                        </div>
+                                    </div>
                                     <div class="row contact-card place list-group-item">
                                         <div class="col-xs-6 contact-col">
                                             <i class="fa fa-map-marker fa-4x" aria-hidden="true"></i>
@@ -133,15 +143,15 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                         {{/if}}
                                         <div class="row list-group-item">
                                             <div class="col-xs-6">
-                                                <p class="active-time-label">Active Waiting Time</p>
-                                                <h3 class="active-time">{{this.active_time}}</h3>
+                                                <p class="active-time-label">Cost</p>
+                                                <h3 class="active-time">${{this.cost}}</h3>
                                             </div>
                                             <div class="col-xs-6 cost-column">
-                                                <p class="active-time-label">Current Cost</p>
-                                                <h3 class="active-time">${{this.cost}}</h3>
+                                                <button class="btn btn-warning" type="submit" id="end-button">End Job</button>
                                             </div>
                                         </div>
                                     </div>
@@ -150,6 +160,7 @@
                         </div>
                     </div>
                 {{/each}}
+
             </script>
 
         </body>

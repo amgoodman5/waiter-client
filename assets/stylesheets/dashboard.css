@@ -99,10 +99,17 @@ a.navbar-brand {
   border-right: 1em solid #E9FFF1;
 }
 
+.accepted .list-group-item{
+  border-right: 1em solid #E9FFF1;
+}
+
 .Requested {
   border-right: 1em solid #F1EFFF;
 }
 
+.Requested .list-group-item {
+    border-right: 1em solid #E9FFF1;
+}
 
 .contact-card {
   display: flex!important;
@@ -112,13 +119,15 @@ a.navbar-brand {
   height: 8em;
 }
 
-.place {
+/*.place {
   background-color: #FFF7DC!important;
 }
 
 .waiter {
   background-color: #ECF3FF!important;
-}
+}*/
+
+
 
 .contact-col {
   height: 100%;
@@ -159,6 +168,8 @@ a.navbar-brand {
   border-right: none!important;
   border-left: none!important;
   border-radius: 0px!important;
+  display: flex!important;
+  align-items: center;
 }
 
 .image-holder {
