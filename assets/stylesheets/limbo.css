@@ -31,10 +31,16 @@
       flex-direction: column;
       height: 100%;
       padding-top: 2em;
+      padding-right: 1em;
+      padding-left: 1em;
     }
 
     .limbo-header {
       margin-top: 3em;
+    }
+
+    #mainNav {
+      padding: 0;
     }
 
     .limbo-tagline {
@@ -49,7 +55,7 @@
     }
 
     .autocomplete-box {
-      height: 15em;
+      height: 20em;
     }
 
     #map {

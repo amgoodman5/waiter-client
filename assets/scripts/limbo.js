@@ -64,8 +64,9 @@ function initAutocomplete() {
     // Listen for the event fired when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         let places = searchBox.getPlaces();
-        console.log(places);
+        $('.autocomplete-box').css('height', '10em');
         createContact(places);
+        console.log(places);
 
         if (places.length === 0) {
             return;
@@ -86,9 +87,9 @@ function initAutocomplete() {
             }
             let icon = {
                 url: place.icon,
-                size: new google.maps.Size(50, 50),
+                size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
+                anchor: new google.maps.Point(17, 80),
                 scaledSize: new google.maps.Size(25, 25)
             };
 
@@ -108,7 +109,7 @@ function initAutocomplete() {
             }
         });
         map.fitBounds(bounds);
-        map.setZoom(18);
+        map.setZoom(16);
     });
 }
 
@@ -119,8 +120,8 @@ function createContact(places) {
         <h4 class="card-title">${places[0].name}</h4>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${places[0].formatted_address}</li>
-        <li class="list-group-item phone">${places[0].formatted_phone_number}</li>
+      <li class="list-group-item address"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp<span>${places[0].vicinity}</span></li>
+        <li class="list-group-item phone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp<span>${places[0].formatted_phone_number}</span></li>
       </ul>
     </div>`;
     if ($(".card")[0]) {
@@ -135,8 +136,8 @@ function sendRequest() {
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
-        formObj.name = nameSplit();
-        formObj.address = addressSplit();
+        formObj.name = $('.card-title').html();
+        formObj.address = $('.address span').html();
         formObj.date = $('#date-input').val();
         formObj.lat = 123;
         formObj.long = 234;
@@ -145,7 +146,7 @@ function sendRequest() {
         formObj.rate = 2;
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
-        formObj.phone = $('.phone').html();
+        formObj.phone = $('.phone span').html();
         console.log(formObj);
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);

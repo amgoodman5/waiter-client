@@ -11,6 +11,7 @@ $.ajaxSetup({
 $(document).ready(function() {
   let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   $('#user-job').html(`${cookieValue}'s Jobs`);
+    updateStatus();
     $('.collapse').collapse();
     logOut();
     getJob()
@@ -88,15 +89,17 @@ function updateStatus() {
             status: selected,
             starting_time: timestamp
         };
-
+       console.log(jobObj)
         $.ajax({
-            url: `${SERVER_URL}/users/jobs`,
+            url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
             data: jobObj,
             dataType: "application/json"
         });
     });
 }
+
+
 
 function totalWait() {
     $('#wait-input').on('change', function(event) {
