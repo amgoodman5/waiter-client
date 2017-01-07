@@ -67,6 +67,10 @@ function updateStatus() {
         let jobID = $(this).find("option:selected").data('id');
         let selected = $(this).find("option:selected").html();
         let timestamp = moment().format('MM-DD-YYYY HH:mm');
+        console.log(jobID);
+        console.log(selected);
+        console.log(timestamp);
+
         let jobObj = {
             id: jobID,
             status: selected,
