@@ -18,7 +18,7 @@ function getUrl() {
 }
 
 function getJob() {
-    return $.get(`${SERVER_URL}/userAPI/job`);
+    return $.get(`${SERVER_URL}/userAPI/request`);
 }
 
 function cleanData(data) {

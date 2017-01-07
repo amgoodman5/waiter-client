@@ -9,9 +9,9 @@ $(document).ready(function() {
       checkUser(userData)
       .then((data)=>{
         console.log(data);
-        // window.location.replace(`${CLIENT_URL}/dashboard.html`);
+        window.location.replace(`${CLIENT_URL}/dashboard.html`);
       })
-      // .catch(errorFunction);
+      .catch(errorFunction);
     });
 });
 
