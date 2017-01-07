@@ -24,13 +24,13 @@ function getJob() {
 function cleanData(data) {
     let cleanArr = data;
     cleanArr.forEach(function(element) {
-        let date = moment(element.date).format('MM-DD-YYYY')
+        let date = moment(element.date).format('MM-DD-YYYY');
         let start = moment(element.start_time, 'H:mm:ss').format('H:mm');
         let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY H:mm');
         let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY H:mm');
         let duration = moment.duration(now - datetime);
         console.log(duration);
-        let durationClean = moment(duration._data).format("H[h] m[m]")
+        let durationClean = moment(duration._data).format("H[h] m[m]");
         if (duration > 0) {
             element.active_time = durationClean;
         } else {
@@ -49,7 +49,7 @@ function cleanData(data) {
 }
 
 function appendJob(clean) {
-    // console.log(clean);
+    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {

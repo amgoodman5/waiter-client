@@ -65,65 +65,66 @@
                 <div class="accordion-job"></div>
                 <div class="row current-job"></div>
                 <div class="row past-job"></div>
-            </main>
-            <footer>
-                <div class="container">
-                    <p>&copy; 2016 Dillon & Friends All Rights Reserved.</p>
-                </div>
-            </footer>
-            <script id="job-template" type="text/x-handlebars-template">
-                <div id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="card">
-                        {{#each clean}}
-                            <div class="row" role="tab" id="card-header">
-                                <div class="col-xs-5 job-headers">
-                                    <h5>
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{this.job_id}}" aria-expanded="false" aria-controls="collapseTwo">
-                                            {{this.name}}
-
-                                        </a>
-                                    </h5>
-                                </div>
-                                <div class="col-xs-3 job-headers">
-                                    <h5>
-                                        {{this.start_time}}
-                                    </h5>
-                                </div>
-                                <div class="col-xs-3 job-headers">
-                                    <h5 class="mb-0">
-                                        {{this.status}}
-                                    </h5>
-                                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <p>&copy; 2016 Dillon & Friends All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script id="job-template" type="text/x-handlebars-template">
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="card">
+                    {{#each clean}}
+                        <div class="row" role="tab" id="card-header">
+                            <div class="col-xs-5 job-headers">
+                                <h5>
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{this.job_id}}" aria-expanded="false" aria-controls="collapseTwo">
+                                        {{this.name}}
+                                    </a>
+                                </h5>
                             </div>
-                            <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
-                                <div class="card-block">
-                                    <div class="list-group list-group">
-                                        <div class="row contact-card place list-group-item">
-                                            <div class="col-xs-6 contact-col">
-                                                <i class="fa fa-map-marker fa-4x" aria-hidden="true"></i>
-                                                <p class="">{{this.name}}</p>
-                                            </div>
-                                            <div class="col-xs-6 contact-col">
-                                                <div class="row">
-                                                    <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
-                                                    <p class="">234-234-2344
-                                                    </div>
-                                                </p>
-                                                <div class="row">
-                                                    <i class="fa fa-map-o fa-2x contact-icon" aria-hidden="true"></i>
-                                                    <p class="">{{this.address}}
-                                                    </div>
+                            <div class="col-xs-3 job-headers">
+                                <h5>
+                                    {{this.start_time}}
+                                </h5>
+                            </div>
+                            <div class="col-xs-3 job-headers">
+                                <h5 class="mb-0">
+                                    {{this.status}}
+                                </h5>
+                            </div>
+                        </div>
+                        <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
+                            <div class="card-block">
+                                <div class="list-group list-group">
+                                    <div class="row contact-card place list-group-item">
+                                        <div class="col-xs-6 contact-col">
+                                            <i class="fa fa-map-marker fa-4x" aria-hidden="true"></i>
+                                            <p class="">{{this.name}}</p>
+                                        </div>
+                                        <div class="col-xs-6 contact-col">
+                                            <div class="row">
+                                                <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
+                                                <p class="">234-234-2344
+                                                </div>
+                                            </p>
+                                            <div class="row">
+                                                <i class="fa fa-map-o fa-2x contact-icon" aria-hidden="true"></i>
+                                                <p class="">{{this.address}}
                                                 </div>
                                             </div>
+                                        </div>
+                                        {{#if this.waiter}}
                                             <div class="row contact-card waiter list-group-item">
                                                 <div class="col-xs-6 contact-col">
                                                     <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-                                                    <p class="">{{this.fname}}</p>
+                                                    <p class="">{{this.waiter.fname}}</p>
                                                 </div>
                                                 <div class="col-xs-6 contact-col">
                                                     <div class="row">
                                                         <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
-                                                        <p class="">{{this.phone_number}}
+                                                        <p class="">{{this.waiter.phone_number}}
                                                         </div>
                                                     </p>
                                                     <div class="row">
@@ -132,24 +133,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="row list-group-item">
-                                                <div class="col-xs-6">
-                                                    <p class="active-time-label">Active Waiting Time</p>
-                                                    <h3 class="active-time">{{this.active_time}}</h3>
-                                                </div>
-                                                <div class="col-xs-6 cost-column">
-                                                    <p class="active-time-label">Current Cost</p>
-                                                    <h3 class="active-time">${{this.cost}}</h3>
-                                                </div>
+                                        {{/if}}
+                                        <div class="row list-group-item">
+                                            <div class="col-xs-6">
+                                                <p class="active-time-label">Active Waiting Time</p>
+                                                <h3 class="active-time">{{this.active_time}}</h3>
+                                            </div>
+                                            <div class="col-xs-6 cost-column">
+                                                <p class="active-time-label">Current Cost</p>
+                                                <h3 class="active-time">${{this.cost}}</h3>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {{/each}}
-                </script>
+                    </div>
+                {{/each}}
+            </script>
 
-            </body>
-        </html>
+        </body>
+    </html>
