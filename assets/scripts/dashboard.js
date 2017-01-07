@@ -76,3 +76,9 @@ function endJob() {
         });
     });
 }
+
+// function logOut(){
+//   $('#log-out').on('click',function(event)=>{
+//     $.get
+//   })
+// }
