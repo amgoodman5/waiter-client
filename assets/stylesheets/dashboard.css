@@ -201,8 +201,9 @@ a.navbar-brand {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
     padding-top: 1%;
     height: 3em;
     background: #2C3E50;
