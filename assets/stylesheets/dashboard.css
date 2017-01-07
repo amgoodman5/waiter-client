@@ -94,6 +94,14 @@ a.navbar-brand {
   align-items: center;
 }
 
+.accepted {
+  border-right: 1em solid #E9FFF1;
+}
+
+.Requested {
+  border-right: 1em solid #F1EFFF;
+}
+
 
 .contact-card {
   display: flex!important;

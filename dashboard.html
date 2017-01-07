@@ -76,7 +76,7 @@
             <div id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="card">
                     {{#each clean}}
-                        <div class="row" role="tab" id="card-header">
+                        <div class="row {{this.status}}" role="tab" id="card-header">
                             <div class="col-xs-5 job-headers">
                                 <h5>
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{this.job_id}}" aria-expanded="false" aria-controls="collapseTwo">
@@ -86,12 +86,12 @@
                             </div>
                             <div class="col-xs-3 job-headers">
                                 <h5>
-                                    {{this.start_time}}
+                                    {{this.postdate}}
                                 </h5>
                             </div>
                             <div class="col-xs-3 job-headers">
                                 <h5 class="mb-0">
-                                    {{this.status}}
+                                    {{this.start_time}}
                                 </h5>
                             </div>
                         </div>

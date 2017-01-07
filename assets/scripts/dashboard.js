@@ -25,6 +25,7 @@ function cleanData(data) {
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let date = moment(element.date).format('MM-DD-YYYY');
+        element.postdate = moment(date).format('MMM-DD');
         let start = moment(element.start_time, 'H:mm:ss').format('H:mm');
         let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY H:mm');
         let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY H:mm');
