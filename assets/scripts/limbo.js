@@ -64,8 +64,9 @@ function initAutocomplete() {
     // Listen for the event fired when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         let places = searchBox.getPlaces();
-        $('.autocomplete-box').css('height', '10em')
+        $('.autocomplete-box').css('height', '10em') l
         createContact(places);
+        console.log(places);
 
         if (places.length === 0) {
             return;
@@ -119,8 +120,8 @@ function createContact(places) {
         <h4 class="card-title">${places[0].name}</h4>
       </div>
       <ul class="list-group list-group-flush">
-      <li class="list-group-item"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp&nbsp${places[0].vicinity}</li>
-        <li class="list-group-item phone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>&nbsp&nbsp${places[0].formatted_phone_number}</li>
+      <li class="list-group-item address"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp<span>${places[0].vicinity}</span></li>
+        <li class="list-group-item phone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp<span>${places[0].formatted_phone_number}</span></li>
       </ul>
     </div>`;
     if ($(".card")[0]) {
@@ -135,8 +136,8 @@ function sendRequest() {
     $('#request-button').click(function(event) {
         event.preventDefault();
         let formObj = {};
-        formObj.name = nameSplit();
-        formObj.address = addressSplit();
+        formObj.name = $('.card-title').html();
+        formObj.address = $('.address span').html();
         formObj.date = $('#date-input').val();
         formObj.lat = 123;
         formObj.long = 234;
@@ -145,17 +146,17 @@ function sendRequest() {
         formObj.rate = 2;
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
-        formObj.phone = $('.phone').html();
+        formObj.phone = $('.phone span').html();
         console.log(formObj);
-        $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
-            window.location.replace(`${CLIENT_URL}/dashboard.html`);
-        }).catch(function(error) {
-            if (error.status === 401) {
-                window.location = '/signin.html';
-            } else {
-                console.log(error);
-            }
-        });
+        // $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
+        //     window.location.replace(`${CLIENT_URL}/dashboard.html`);
+        // }).catch(function(error) {
+        //     if (error.status === 401) {
+        //         window.location = '/signin.html';
+        //     } else {
+        //         console.log(error);
+        //     }
+        // });
     });
 }
 
