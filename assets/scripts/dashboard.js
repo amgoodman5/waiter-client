@@ -57,7 +57,7 @@ function appendJob(clean) {
         clean
     };
     let html = template(context);
-    $('.accordion-job').html(html);
+    $('#active-job').html(html);
     // return user.id;
 }
 

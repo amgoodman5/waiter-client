@@ -121,7 +121,6 @@ function createContact(places) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${places[0].formatted_address}</li>
         <li class="list-group-item phone">${places[0].formatted_phone_number}</li>
-        <li class="list-group-item"><a href="#" class="card-link">${places[0].website}</a></li>
       </ul>
     </div>`;
     if ($(".card")[0]) {

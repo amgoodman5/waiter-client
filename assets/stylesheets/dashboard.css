@@ -62,7 +62,6 @@ a.navbar-brand {
 }
 
 .row {
-  padding-bottom: 1em;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -76,6 +75,8 @@ a.navbar-brand {
   padding-top: 1em;
   padding-bottom: 0;
   font-size: .8em;
+  margin: 0px!important;
+  width: 100%;
 }
 
 .accordion-job {
