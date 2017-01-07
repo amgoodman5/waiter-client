@@ -3,15 +3,15 @@ const SERVER_URL = getUrl1();
 
 $(document).ready(function() {
     $("#signin-form").on("submit", function(event) {
-        event.preventDefault();
-        var userData = $(this).serialize();
-        console.log(userData);
-        checkUser(userData)
-            .then((data) => {
-                console.log(data);
-                window.location.replace(`${CLIENT_URL}/dashboard.html`);
-            })
-            // .catch(errorFunction);
+      event.preventDefault();
+      var userData = $(this).serialize();
+      console.log(userData);
+      checkUser(userData)
+      .then((data)=>{
+        console.log(data);
+        window.location.replace(`${CLIENT_URL}/dashboard.html`);
+      })
+      .catch(errorFunction);
     });
 });
 
