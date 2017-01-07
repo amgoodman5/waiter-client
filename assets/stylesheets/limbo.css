@@ -33,6 +33,10 @@
       padding-top: 2em;
     }
 
+    .limbo-header {
+      margin-top: 3em;
+    }
+
     .limbo-tagline {
       font-size: 1.5em;
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
