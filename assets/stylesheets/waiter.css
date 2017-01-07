@@ -179,3 +179,19 @@ a.navbar-brand {
   flex-direction: column;
   align-items: flex-end;
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding-top: 1%;
+    height: 3em;
+    background: #2C3E50;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+footer p {
+    color: white;
+}

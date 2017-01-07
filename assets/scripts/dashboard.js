@@ -5,8 +5,9 @@ $(document).ready(function() {
     $('.collapse').collapse();
     getJob()
         .then(cleanData)
-        .then(appendJob)
-        .catch(errorFunction);
+        .then(appendJob);
+    // .catch(errorFunction);
+    endJob()
 });
 
 function getUrl() {
@@ -18,7 +19,7 @@ function getUrl() {
 }
 
 function getJob() {
-    return $.get(`${SERVER_URL}/userAPI/job`);
+    return $.get(`${SERVER_URL}/userAPI/request`);
 }
 
 function cleanData(data) {
@@ -30,7 +31,6 @@ function cleanData(data) {
         let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY H:mm');
         let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY H:mm');
         let duration = moment.duration(now - datetime);
-        console.log(duration);
         let durationClean = moment(duration._data).format("H[h] m[m]");
         if (duration > 0) {
             element.active_time = durationClean;
@@ -50,21 +50,29 @@ function cleanData(data) {
 }
 
 function appendJob(clean) {
-    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
         clean
     };
     let html = template(context);
-    $('.accordion-job').html(html);
+    $('#active-job').html(html);
     // return user.id;
+
+    endJob();
 }
 
-function errorFunction(err) {
-    if (err.status === 401) {
-        window.location = '/signin.html';
-    } else {
-        console.log(err);
-    }
+function endJob() {
+    $('.end-job').on('click', function(event) {
+        console.log(this.dataset.id);
+        var jobObj = {
+            id: this.dataset.id
+        };
+        $.ajax({
+            url: `${SERVER_URL}/users/jobs`,
+            method: "DELETE",
+            data: jobObj,
+            dataType: "application/json"
+        });
+    });
 }

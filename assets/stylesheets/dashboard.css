@@ -1,6 +1,6 @@
-body {
-    min-height: 100vh;
+.body {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
 
@@ -62,7 +62,6 @@ a.navbar-brand {
 }
 
 .row {
-  padding-bottom: 1em;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -76,6 +75,8 @@ a.navbar-brand {
   padding-top: 1em;
   padding-bottom: 0;
   font-size: .8em;
+  margin: 0px!important;
+  width: 100%;
 }
 
 .accordion-job {
@@ -98,10 +99,17 @@ a.navbar-brand {
   border-right: 1em solid #E9FFF1;
 }
 
+.accepted .list-group-item{
+  border-right: 1em solid #E9FFF1;
+}
+
 .Requested {
   border-right: 1em solid #F1EFFF;
 }
 
+.Requested .list-group-item {
+    border-right: 1em solid #E9FFF1;
+}
 
 .contact-card {
   display: flex!important;
@@ -111,13 +119,15 @@ a.navbar-brand {
   height: 8em;
 }
 
-.place {
+/*.place {
   background-color: #FFF7DC!important;
 }
 
 .waiter {
   background-color: #ECF3FF!important;
-}
+}*/
+
+
 
 .contact-col {
   height: 100%;
@@ -158,6 +168,8 @@ a.navbar-brand {
   border-right: none!important;
   border-left: none!important;
   border-radius: 0px!important;
+  display: flex!important;
+  align-items: center;
 }
 
 .image-holder {
@@ -186,4 +198,21 @@ a.navbar-brand {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    padding-top: 1%;
+    height: 3em;
+    background: #2C3E50;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+footer p {
+    color: white;
 }
