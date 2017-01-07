@@ -1,8 +1,13 @@
 const SERVER_URL = getUrl();
-
+const CLIENT_URL = getUrl2();
 
 $(document).ready(function() {
+  console.log(document.cookie);
+  let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+  $('#user-name').html(`${cookieValue}'s Requests`);
     $('.collapse').collapse();
+    logOut();
     getJob()
         .then(cleanData)
         .then(appendJob);
@@ -15,6 +20,14 @@ function getUrl() {
         return 'http://localhost:3000';
     } else {
         return 'https://line-waiter-db.herokuapp.com';
+    }
+}
+
+function getUrl2() {
+    if (window.location.host.indexOf('localhost') != -1) {
+        return 'http://localhost:8080';
+    } else {
+        return 'https://line-waiter.firebaseapp.com';
     }
 }
 
@@ -69,16 +82,23 @@ function endJob() {
             id: this.dataset.id
         };
         $.ajax({
-            url: `${SERVER_URL}/users/jobs`,
+            url: `${SERVER_URL}/userAPI/job`,
             method: "DELETE",
             data: jobObj,
-            dataType: "application/json"
+            dataType: "json",
+            success:function(){
+              window.location.replace(`${CLIENT_URL}/dashboard.html`);
+            }
         });
     });
 }
 
-// function logOut(){
-//   $('#log-out').on('click',function(event)=>{
-//     $.get
-//   })
-// }
+function logOut(){
+  $('#log-out').on('click',function(event){
+    event.preventDefault();
+    $.get(`${SERVER_URL}/authAPI/logout`)
+    .then(()=>{
+      return window.location.replace(`${CLIENT_URL}`);
+    });
+  });
+}

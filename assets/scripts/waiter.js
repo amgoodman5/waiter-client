@@ -1,4 +1,5 @@
 const SERVER_URL = getUrl();
+const CLIENT_URL = getUrl2();
 
 $.ajaxSetup({
     crossDomain: true,
@@ -8,7 +9,10 @@ $.ajaxSetup({
 });
 
 $(document).ready(function() {
+  let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+  $('#user-job').html(`${cookieValue}'s Jobs`);
     $('.collapse').collapse();
+    logOut();
     getJob()
         .then(cleanData)
         .then(appendJob);
@@ -20,6 +24,14 @@ function getUrl() {
         return 'http://localhost:3000';
     } else {
         return 'https://line-waiter-db.herokuapp.com';
+    }
+}
+
+function getUrl2() {
+    if (window.location.host.indexOf('localhost') != -1) {
+        return 'http://localhost:8080';
+    } else {
+        return 'https://line-waiter.firebaseapp.com';
     }
 }
 
@@ -100,4 +112,14 @@ function totalWait() {
 
 function errorFunction(err) {
     console.log('error', err);
+}
+
+function logOut(){
+  $('#log-out').on('click',function(event){
+    event.preventDefault();
+    $.get(`${SERVER_URL}/authAPI/logout`)
+    .then(()=>{
+      return window.location.replace(`${CLIENT_URL}`);
+    });
+  });
 }
