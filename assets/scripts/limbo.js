@@ -64,7 +64,7 @@ function initAutocomplete() {
     // Listen for the event fired when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         let places = searchBox.getPlaces();
-        console.log(places);
+        $('.autocomplete-box').css('height', '10em')
         createContact(places);
 
         if (places.length === 0) {
@@ -86,9 +86,9 @@ function initAutocomplete() {
             }
             let icon = {
                 url: place.icon,
-                size: new google.maps.Size(50, 50),
+                size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
+                anchor: new google.maps.Point(17, 80),
                 scaledSize: new google.maps.Size(25, 25)
             };
 
@@ -108,7 +108,7 @@ function initAutocomplete() {
             }
         });
         map.fitBounds(bounds);
-        map.setZoom(18);
+        map.setZoom(16);
     });
 }
 
@@ -119,8 +119,8 @@ function createContact(places) {
         <h4 class="card-title">${places[0].name}</h4>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${places[0].formatted_address}</li>
-        <li class="list-group-item phone">${places[0].formatted_phone_number}</li>
+      <li class="list-group-item"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp&nbsp${places[0].vicinity}</li>
+        <li class="list-group-item phone"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>&nbsp&nbsp${places[0].formatted_phone_number}</li>
       </ul>
     </div>`;
     if ($(".card")[0]) {
