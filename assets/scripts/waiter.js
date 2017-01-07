@@ -8,6 +8,7 @@ $.ajaxSetup({
 });
 
 $(document).ready(function() {
+    updateStatus()
     $('.collapse').collapse();
     getJob()
         .then(cleanData)
@@ -76,15 +77,17 @@ function updateStatus() {
             status: selected,
             starting_time: timestamp
         };
-
+       console.log(jobObj)
         $.ajax({
-            url: `${SERVER_URL}/users/jobs`,
+            url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
             data: jobObj,
             dataType: "application/json"
         });
     });
 }
+
+
 
 function totalWait() {
     $('#wait-input').on('change', function(event) {
