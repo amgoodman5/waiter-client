@@ -1,12 +1,8 @@
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-        margin-top: 7em;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-    }
+.body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 
     a.navbar-brand {
       color:white!important;
@@ -17,6 +13,7 @@
       text-transform: uppercase;
       font-weight: 700;
       border: none;
+      padding-right: 1em;
     }
     .navbar-custom .navbar-toggle {
       color: white;
@@ -33,6 +30,7 @@
       height: 100em;
       display: flex;
       flex-direction: column;
+      padding-top: 2em;
     }
 
     .limbo-tagline {
@@ -90,6 +88,22 @@
     height: 20em;
   }
   footer {
+      padding-top: 1%;
+      height: 3em;
+      background: #2C3E50;
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: none;
+      text-align: center;
+  }
+  footer p {
+      color: white;
+  }
+
+  footer {
+      position: absolute;
+      bottom: 0;
       padding-top: 1%;
       height: 3em;
       background: #2C3E50;

@@ -1,6 +1,6 @@
-body {
-    min-height: 100vh;
+.body {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
 
@@ -198,4 +198,20 @@ a.navbar-brand {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding-top: 1%;
+    height: 3em;
+    background: #2C3E50;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+footer p {
+    color: white;
 }
