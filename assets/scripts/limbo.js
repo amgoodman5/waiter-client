@@ -121,7 +121,6 @@ function createContact(places) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${places[0].formatted_address}</li>
         <li class="list-group-item phone">${places[0].formatted_phone_number}</li>
-        <li class="list-group-item"><a href="#" class="card-link">${places[0].website}</a></li>
       </ul>
     </div>`;
     if ($(".card")[0]) {
@@ -151,11 +150,11 @@ function sendRequest() {
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);
         }).catch(function(error) {
-          if (error.status === 401) {
-            window.location = '/signin.html';
-          } else {
-            console.log(error);
-          }
+            if (error.status === 401) {
+                window.location = '/signin.html';
+            } else {
+                console.log(error);
+            }
         });
     });
 }
@@ -176,7 +175,8 @@ function dateInput() {
 }
 
 function timeInput() {
-    let now = moment(moment()).format('hh:mm');
+    let now = moment(moment()).format('H:mm');
+    console.log(now);
     return $('#time-input').val(now);
 }
 

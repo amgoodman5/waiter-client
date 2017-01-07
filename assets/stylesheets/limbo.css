@@ -1,12 +1,8 @@
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-        margin-top: 7em;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-    }
+.body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 
     a.navbar-brand {
       color:white!important;
@@ -17,6 +13,7 @@
       text-transform: uppercase;
       font-weight: 700;
       border: none;
+      padding-right: 1em;
     }
     .navbar-custom .navbar-toggle {
       color: white;
@@ -30,18 +27,19 @@
     }
 
     .main {
-      height: 100em;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      padding-top: 2em;
+    }
+
+    .limbo-header {
+      margin-top: 3em;
     }
 
     .limbo-tagline {
       font-size: 1.5em;
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-
-    .row {
-      padding-bottom: .5em;
     }
 
     .form {
@@ -76,10 +74,20 @@
   #request-button {
     width: 40%;
   }
+
+#pac-input {
+  margin-bottom: 1em;
+
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
     .place-contact {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
 
     .image-holder {
@@ -90,6 +98,23 @@
     height: 20em;
   }
   footer {
+      padding-top: 1%;
+      height: 3em;
+      background: #2C3E50;
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: none;
+      text-align: center;
+  }
+  footer p {
+      color: white;
+  }
+
+  footer {
+      position: fixed;
+      width: 100%;
+      bottom: 1.9em;
       padding-top: 1%;
       height: 3em;
       background: #2C3E50;

@@ -20,10 +20,10 @@ $(document).ready(function() {
 function checkUser(formData) {
     //error keeps triggering but it posts to db... is it because it is asynchronous?
     return $.post(`${SERVER_URL}/authAPI`, formData)
-    //
-    // .catch(function(error){
-    //   console.log(error,'testttt');
-    // });
+        //
+        // .catch(function(error){
+        //   console.log(error,'testttt');
+        // });
 }
 
 function getUrl1() {
@@ -44,8 +44,8 @@ function getUrl2() {
 
 function errorFunction(err) {
     if (err.status === 401) {
-      window.location = '/signin.html';
+        window.location = '/signin.html';
     } else {
-      console.log(err);
+        console.log(err);
     }
 }
