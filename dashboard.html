@@ -74,8 +74,8 @@
         </footer>
         <script id="job-template" type="text/x-handlebars-template">
             <div id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="card">
-                    {{#each clean}}
+                {{#each clean}}
+                    <div class="card {{this.job_id}}">
                         <div class="row {{this.status}}" role="tab" id="card-header">
                             <div class="col-xs-5 job-headers">
                                 <h5>
@@ -151,7 +151,7 @@
                                                 <h3 class="active-time">${{this.cost}}</h3>
                                             </div>
                                             <div class="col-xs-6 cost-column">
-                                                <button class="btn btn-warning" type="submit" id="end-button">End Job</button>
+                                                <button data-id="{{this.job_id}}" class="btn btn-warning end-job" type="submit">End Job</button>
                                             </div>
                                         </div>
                                     </div>
