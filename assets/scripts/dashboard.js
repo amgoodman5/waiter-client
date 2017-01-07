@@ -50,6 +50,7 @@ function cleanData(data) {
 }
 
 function appendJob(clean) {
+    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
@@ -65,8 +66,10 @@ function appendJob(clean) {
 function endJob() {
     $('.end-job').on('click', function(event) {
         console.log(this.dataset.id);
+        let timestamp = moment().format('MM-DD-YYYY HH:mm');
         var jobObj = {
-            id: this.dataset.id
+            id: this.dataset.id,
+            endtime: timestamp
         };
         $.ajax({
             url: `${SERVER_URL}/users/jobs`,
