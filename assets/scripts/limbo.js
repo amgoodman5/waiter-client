@@ -64,7 +64,7 @@ function initAutocomplete() {
     // Listen for the event fired when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         let places = searchBox.getPlaces();
-        $('.autocomplete-box').css('height', '10em') l
+        $('.autocomplete-box').css('height', '10em');
         createContact(places);
         console.log(places);
 
@@ -148,15 +148,15 @@ function sendRequest() {
         formObj.end_time = $('#time-input').val();
         formObj.phone = $('.phone span').html();
         console.log(formObj);
-        // $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
-        //     window.location.replace(`${CLIENT_URL}/dashboard.html`);
-        // }).catch(function(error) {
-        //     if (error.status === 401) {
-        //         window.location = '/signin.html';
-        //     } else {
-        //         console.log(error);
-        //     }
-        // });
+        $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
+            window.location.replace(`${CLIENT_URL}/dashboard.html`);
+        }).catch(function(error) {
+            if (error.status === 401) {
+                window.location = '/signin.html';
+            } else {
+                console.log(error);
+            }
+        });
     });
 }
 
