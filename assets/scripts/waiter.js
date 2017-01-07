@@ -12,7 +12,7 @@ $(document).ready(function() {
     getJob()
         .then(cleanData)
         .then(appendJob)
-        .catch(errorFunction);
+        // .catch(errorFunction);
 });
 
 function getUrl() {
@@ -33,7 +33,6 @@ function cleanData(data) {
         let now = moment(moment(), 'HH:mm');
         let start = moment(element.start_time, 'HH:mm');
         let duration = moment.duration(now - start).minutes();
-        console.log(duration);
         if (duration > 0) {
             element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('m');
         } else {
@@ -50,7 +49,6 @@ function cleanData(data) {
 }
 
 function appendJob(clean) {
-    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
@@ -59,7 +57,29 @@ function appendJob(clean) {
     let html = template(context);
     $('.accordion-job').html(html);
     // return user.id;
+
+    updateStatus()
 }
+
+function updateStatus() {
+    $('.select-list').on('change', function(event) {
+        let jobID = $(this).find("option:selected").data('id');
+        let selected = $(this).find("option:selected").html();
+        console.log(jobID);
+        let jobObj = {
+            id: jobID,
+            status: selected
+        };
+
+        $.ajax({
+            url: `${SERVER_URL}/users/jobs`,
+            method: "PUT",
+            data: jobObj,
+            dataType: "application/json"
+        });
+    });
+}
+
 
 function errorFunction(err) {
     console.log('error', err);
