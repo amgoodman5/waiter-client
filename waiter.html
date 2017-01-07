@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Requester Dashboard</title>
+        <title>Waiter Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/stylesheets/waiter.css" media="screen" title="no title">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
@@ -88,9 +88,14 @@
                                 </h5>
                             </div>
                             <div class="col-xs-3 job-headers">
-                                <h5 class="mb-0">
-                                    {{this.status}}
-                                </h5>
+                                <form class="form-inline">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 select-list" id="inlineFormCustomSelect">
+                                        <option class="status-option" data-id="{{this.job_id}}">Accepted</option>
+                                        <option class="status-option" data-id="{{this.job_id}}">In Transit</option>
+                                        <option class="status-option" data-id="{{this.job_id}}">Waiting</option>
+                                        <option class="status-option" data-id="{{this.job_id}}">Completed</option>
+                                    </select>
+                                </form>
                             </div>
                         </div>
                         <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
@@ -132,13 +137,19 @@
                                         </div>
 
                                         <div class="row list-group-item">
-                                            <div class="col-xs-6">
-                                                <p class="active-time-label">Active Waiting Time</p>
-                                                <h3 class="active-time">{{this.active_time}}</h3>
+                                            <div class="col-xs-5">
+                                                <p class="active-time-label">Total Wait</p>
+                                                <div class="col-10">
+                                                    <input class="form-control" type="number" data-id="{{this.job_id}}" id="wait-input">
+                                                </div>
                                             </div>
-                                            <div class="col-xs-6 cost-column">
-                                                <p class="active-time-label">Current Cost</p>
-                                                <h3 class="active-time">${{this.cost}}</h3>
+                                            <div class="col-xs-4 cost-column">
+                                                <p class="active-time-label">Remaining Wait</p>
+                                                <!-- <h3 class="active-time">${{this.cost}}</h3> -->
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <p class="active-time-label">Total Wait Time</p>
+                                                <h3 class="active-time">{{this.active_time}}</h3>
                                             </div>
                                         </div>
                                     </div>

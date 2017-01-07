@@ -180,6 +180,10 @@ a.navbar-brand {
   align-items: flex-end;
 }
 
+#wait-input {
+  width: 40%;
+}
+
 footer {
     position: absolute;
     bottom: 0;

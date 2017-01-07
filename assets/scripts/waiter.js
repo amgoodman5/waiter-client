@@ -11,8 +11,8 @@ $(document).ready(function() {
     $('.collapse').collapse();
     getJob()
         .then(cleanData)
-        .then(appendJob)
-        .catch(errorFunction);
+        .then(appendJob);
+    // .catch(errorFunction);
 });
 
 function getUrl() {
@@ -33,7 +33,6 @@ function cleanData(data) {
         let now = moment(moment(), 'HH:mm');
         let start = moment(element.start_time, 'HH:mm');
         let duration = moment.duration(now - start).minutes();
-        console.log(duration);
         if (duration > 0) {
             element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('m');
         } else {
@@ -50,7 +49,6 @@ function cleanData(data) {
 }
 
 function appendJob(clean) {
-    console.log(clean);
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
@@ -59,6 +57,45 @@ function appendJob(clean) {
     let html = template(context);
     $('.accordion-job').html(html);
     // return user.id;
+
+    updateStatus();
+    totalWait();
+}
+
+function updateStatus() {
+    $('.select-list').on('change', function(event) {
+        let jobID = $(this).find("option:selected").data('id');
+        let selected = $(this).find("option:selected").html();
+        let timestamp = moment().format('MM-DD-YYYY HH:mm');
+        console.log(jobID);
+        console.log(selected);
+        console.log(timestamp);
+
+        let jobObj = {
+            id: jobID,
+            status: selected,
+            starting_time: timestamp
+        };
+
+        $.ajax({
+            url: `${SERVER_URL}/users/jobs`,
+            method: "PUT",
+            data: jobObj,
+            dataType: "application/json"
+        });
+    });
+}
+
+function totalWait() {
+    $('#wait-input').on('change', function(event) {
+        let jobID = this.dataset.id
+        let total = $('#wait-input').val();
+        console.log(total);
+        let jobObj = {
+            id: jobID,
+            totalWait: total
+        };
+    });
 }
 
 function errorFunction(err) {
