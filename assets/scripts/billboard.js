@@ -6,7 +6,7 @@ $(document).ready(() => {
         .then((jobs) => {
             console.log(jobs);
             jobs.forEach((job) => {
-            var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
+                var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="card"><div class="row" role="tab" id="card-header">
             <div class=" job-headers"><h2><a class="collapsed" data-toggle="collapse"
             data-target="#${job.id}" aria-expanded="false" aria-controls="collapseExample">
@@ -34,12 +34,12 @@ $(document).ready(() => {
                     dataType: "application/json"
 
                 });
-                  $.get(`${JOB_URL}/users/jobs`)
-                 .then(()=> {
-                    window.location.replace(`${JOB_URL2}/waiter.html`);
-                }).catch(function(error) {
-                    console.error(error);
-                });
+                $.get(`${JOB_URL}/users/jobs`)
+                    .then(() => {
+                        window.location.replace(`${JOB_URL2}/waiter.html`);
+                    }).catch(function(error) {
+                        console.error(error);
+                    });
             })
         })
         .catch(errorFunction);
@@ -68,9 +68,9 @@ function getUrl() {
 
 function errorFunction(err) {
     if (err.status === 401) {
-      window.location = '/signin.html';
+        window.location = '/signin.html';
     } else {
-      console.log(err);
+        console.log(err);
     }
 }
 

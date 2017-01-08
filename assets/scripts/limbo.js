@@ -146,7 +146,7 @@ function sendRequest() {
         formObj.rate = 2;
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
-        formObj.phone = $('.phone span').html();
+        formObj.phone_number = $('.phone span').html();
         console.log(formObj);
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);
@@ -176,7 +176,7 @@ function dateInput() {
 }
 
 function timeInput() {
-    let now = moment(moment()).format('H:mm');
+    let now = moment(moment()).format('HH:mm');
     console.log(now);
     return $('#time-input').val(now);
 }

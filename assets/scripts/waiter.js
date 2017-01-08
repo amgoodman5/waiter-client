@@ -9,8 +9,8 @@ $.ajaxSetup({
 });
 
 $(document).ready(function() {
-  let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-  $('#user-job').html(`${cookieValue}'s Jobs`);
+    let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    $('#user-job').html(`${cookieValue}'s Jobs`);
     updateStatus();
     $('.collapse').collapse();
     logOut();
@@ -41,6 +41,7 @@ function getJob() {
 }
 
 function cleanData(data) {
+    console.log(data);
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let now = moment(moment(), 'HH:mm');
@@ -89,7 +90,7 @@ function updateStatus() {
             status: selected,
             starting_time: timestamp
         };
-       console.log(jobObj)
+        console.log(jobObj)
         $.ajax({
             url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
@@ -117,12 +118,12 @@ function errorFunction(err) {
     console.log('error', err);
 }
 
-function logOut(){
-  $('#log-out').on('click',function(event){
-    event.preventDefault();
-    $.get(`${SERVER_URL}/authAPI/logout`)
-    .then(()=>{
-      return window.location.replace(`${CLIENT_URL}`);
+function logOut() {
+    $('#log-out').on('click', function(event) {
+        event.preventDefault();
+        $.get(`${SERVER_URL}/authAPI/logout`)
+            .then(() => {
+                return window.location.replace(`${CLIENT_URL}`);
+            });
     });
-  });
 }
