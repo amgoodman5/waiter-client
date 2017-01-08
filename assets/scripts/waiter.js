@@ -42,22 +42,32 @@ function getJob() {
 
 function cleanData(data) {
     console.log(data);
+
     let cleanArr = data;
     cleanArr.forEach(function(element) {
-        let now = moment(moment(), 'HH:mm');
-        let start = moment(element.start_time, 'HH:mm');
-        let duration = moment.duration(now - start).minutes();
+        let phoneform = formatPhoneNumber(element.waiter.phone_number);
+        let date = moment(element.date).format('MM-DD-YYYY');
+        element.postdate = moment(date).format('MMM-DD');
+        let start = moment(element.start_time, 'H:mm:ss').format('H:mm');
+        let datetime = moment(`${date} ${start}`, 'MM-DD-YYYY H:mm');
+        let now = moment(moment(), 'MM-DD-YYYY hh:mm', 'MM-DD-YYYY H:mm');
+        let duration = moment.duration(now - datetime);
+        let durationClean = moment(duration._data).format("H[h] m[m]");
         if (duration > 0) {
-            element.active_time = moment(moment(now, 'hh:mm:ss').diff(moment(element.start_time, 'hh:mm:ss'))).format('m');
+            element.active_time = durationClean;
         } else {
             element.active_time = "Not Started";
         }
         if (element.active_time != 'Not Started') {
-            element.cost = element.active_time * 0.5;
+            let cost = duration._milliseconds / 60000 * 0.1;
+            element.cost = cost.toFixed(2);
         } else {
             element.cost = 0;
         }
-        element.start_time = moment(element.start_time, 'hh:mm:ss').format('h:mma');
+        element.start_time = moment(element.start_time, 'H:mm:ss').format('h:mma');
+        element.time = moment(element.time, 'H:mm').format('h:mma');
+        element.date = date;
+        element.waiter.phone_number = phoneform;
     });
     return cleanArr;
 }
@@ -126,4 +136,10 @@ function logOut() {
                 return window.location.replace(`${CLIENT_URL}`);
             });
     });
+}
+
+function formatPhoneNumber(str) {
+    var str2 = ("" + str).replace(/\D/g, '');
+    var m = str2.match(/^(\d{3})(\d{3})(\d{4})$/);
+    return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
 }

@@ -100,41 +100,72 @@
                         <div id="{{this.job_id}}" class="collapse" role="tabpanel" aria-labelledby="card-header">
                             <div class="card-block">
                                 <div class="list-group list-group">
-                                    <div class="row contact-card place list-group-item">
-                                        <div class="col-xs-6 contact-col">
-                                            <i class="fa fa-map-marker fa-4x" aria-hidden="true"></i>
-                                            <p class="">{{this.name}}</p>
+                                    <div class="row list-group-item">
+                                        <div class="col-xs-6 waiting-status">
+                                            <p class="active-time-label">Active Waiting Time</p>
+                                            <h3 class="active-time">{{this.active_time}}</h3>
                                         </div>
-                                        <div class="col-xs-6 contact-col">
-                                            <div class="row">
-                                                <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
-                                                <p class="">234-234-2344
-                                                </div>
-                                            </p>
-                                            <div class="row">
-                                                <i class="fa fa-map-o fa-2x contact-icon" aria-hidden="true"></i>
+                                        <div class="col-xs-6 waiting-status">
+                                            <p class="active-time-label">Status</p>
+                                            <h3 class="active-time">{{this.status}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row contact-card list-group-item" id="place">
+                                        <div class="row">
+                                            <div class="col-xs-3 location-icon">
+                                                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-xs-9 location-info">
+                                                <p class="">{{this.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3 location-icon">
+                                                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-xs-9 location-info">
+                                                <p class="">{{this.phone_number}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3 location-icon">
+                                                <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-xs-9 location-info">
                                                 <p class="">{{this.address}}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row contact-card waiter list-group-item">
-                                            <div class="col-xs-6 contact-col">
-                                                <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-                                                <p class="">{{this.fname}}</p>
-                                            </div>
-                                            <div class="col-xs-6 contact-col">
-                                                <div class="row">
-                                                    <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
-                                                    <p class="">{{this.phone_number}}
+                                        {{#if this.waiter}}
+                                            <div class="row contact-card waiter list-group-item">
+                                                <div class="col-xs-6 contact-col">
+                                                    <i class="fa fa-user fa-4x" aria-hidden="true"></i>
+                                                    <p class="">{{this.waiter.fname}}</p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
+                                                        <p class="">{{this.waiter.phone_number}}
+                                                        </div>
+                                                    </p>
+                                                    <div class="row">
+                                                        <i class="fa fa-commenting-o fa-2x contact-icon" aria-hidden="true"></i>
+                                                        <a href="#">Send Message</a>
                                                     </div>
-                                                </p>
-                                                <div class="row">
-                                                    <i class="fa fa-commenting-o fa-2x contact-icon" aria-hidden="true"></i>
-                                                    <a href="#">Send Message</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        {{/if}}
 
+                                        <div class="row list-group-item">
+                                            <div class="col-xs-6 cost-column contact-col">
+                                                <p class="active-cost-label">Amount</p>
+                                                <h3 class="active-cost">${{this.cost}}</h3>
+                                            </div>
+                                            <div class="col-xs-6 cost-column">
+                                                <button data-id="{{this.job_id}}" class="btn btn-warning end-job" type="submit">End Job</button>
+                                            </div>
+                                        </div>
                                         <div class="row list-group-item">
                                             <div class="col-xs-5">
                                                 <p class="active-time-label">Total Wait</p>

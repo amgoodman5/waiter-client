@@ -1,6 +1,6 @@
-body {
-    min-height: 100vh;
+.body {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
 
@@ -41,7 +41,7 @@ a.navbar-brand {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center -11em;
+  background-position: center -9.5em;
   padding: 0px!important;
   margin: 0px!important;
   text-align: center;
@@ -52,7 +52,14 @@ a.navbar-brand {
   padding: 0!important;
 }
 
+.collapse {
+  margin-bottom: 1em;
 
+}
+
+.active-cost {
+  margin: 0;
+}
 .limbo-tagline {
   width: 100%;
   color: #fff;
@@ -62,7 +69,6 @@ a.navbar-brand {
 }
 
 .row {
-  padding-bottom: 1em;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -76,6 +82,8 @@ a.navbar-brand {
   padding-top: 1em;
   padding-bottom: 0;
   font-size: .8em;
+  margin: 0px!important;
+  width: 100%;
 }
 
 .accordion-job {
@@ -94,6 +102,39 @@ a.navbar-brand {
   align-items: center;
 }
 
+.Accepted {
+  border-right: 1em solid #E9FFF1;
+}
+
+.Accepted .list-group-item{
+  border-right: 1em solid #E9FFF1;
+}
+
+.Requested {
+  border-right: 1em solid #F1EFFF;
+}
+
+.Requested .list-group-item {
+    border-right: 1em solid #E9FFF1;
+}
+
+.Waiting {
+  border-right: 1em solid #E893A7;
+}
+
+.Completed {
+  background-color: #E8EBF7;
+  font-style: italic;
+}
+
+.no-job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0!important;
+  padding-top: 2em;
+}
 
 .contact-card {
   display: flex!important;
@@ -103,20 +144,54 @@ a.navbar-brand {
   height: 8em;
 }
 
-.place {
-  background-color: #FFF7DC!important;
+#place {
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.waiter {
-  background-color: #ECF3FF!important;
+#place .row {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.contact-col {
-  height: 100%;
+.location-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.location-icon i {
+  padding-left: 2em;
+}
+
+.location-info {
+  padding-left: 2em!important;
+  display: flex;
+  align-items: center;
+}
+
+.location-info p {
+  margin: 0;
+}
+
+.active-time-label {
+  margin: 0;
+}
+
+
+.waiting-status {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.contact-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3em!important;
 }
 
 .contact-col .row {
@@ -150,6 +225,8 @@ a.navbar-brand {
   border-right: none!important;
   border-left: none!important;
   border-radius: 0px!important;
+  display: flex!important;
+  align-items: center;
 }
 
 .image-holder {
@@ -177,16 +254,13 @@ a.navbar-brand {
 .cost-column {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-}
-
-#wait-input {
-  width: 40%;
+  align-items: center;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
     padding-top: 1%;
     height: 3em;
     background: #2C3E50;
