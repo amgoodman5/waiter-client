@@ -11,7 +11,9 @@ $(document).ready(function() {
     getJob()
         .then(cleanData)
         .then(appendInLineJob)
-        .then(appendJob);
+        .then(appendAcceptedJob)
+        .then(appendRequestedJob)
+        .then(appendCompletedJob);
     // .catch(errorFunction);
     endJob()
 });
@@ -65,29 +67,82 @@ function cleanData(data) {
     return cleanArr;
 }
 
-function appendInLineJob(clean) {
-    console.log(clean);
-    clean.forEach(function(element) {
+function appendInLineJob(data) {
+    let clean = [];
+    noJobs(data)
+    data.forEach(function(element) {
         if (element.status === 'Waiting') {
-            console.log(true);
+            clean.push(element)
         }
-        console.log(element.status);
-    })
-    return clean;
+    });
+    let source = $('#job-template').html();
+    let template = Handlebars.compile(source);
+    let context = {
+        clean
+    };
+    console.log(context);
+    let html = template(context);
+    $('#waiting-job').html(html);
+
+    endJob();
+    return data;
 }
 
-function appendJob(clean) {
-    noJobs(clean)
+function appendAcceptedJob(data) {
+    noJobs(data)
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Accepted') {
+            clean.push(element)
+        }
+    });
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
         clean
     };
     let html = template(context);
-    $('#jobs').html(html);
-    // return user.id;
-
+    $('#accepted-job').html(html);
     endJob();
+    return data;
+}
+
+function appendRequestedJob(data) {
+    noJobs(data)
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Requested') {
+            clean.push(element)
+        }
+    });
+    let source = $('#job-template').html();
+    let template = Handlebars.compile(source);
+    let context = {
+        clean
+    };
+    let html = template(context);
+    $('#requested-job').html(html);
+    endJob();
+    return data;
+}
+
+function appendCompletedJob(data) {
+    noJobs(data)
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Completed') {
+            clean.push(element)
+        }
+    });
+    let source = $('#job-template').html();
+    let template = Handlebars.compile(source);
+    let context = {
+        clean
+    };
+    let html = template(context);
+    $('#completed-job').html(html);
+    endJob();
+    return data;
 }
 
 function endJob() {
