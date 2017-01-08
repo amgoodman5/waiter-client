@@ -10,6 +10,7 @@ $(document).ready(function() {
     logOut();
     getJob()
         .then(cleanData)
+        .then(appendInLineJob)
         .then(appendJob);
     // .catch(errorFunction);
     endJob()
@@ -64,8 +65,18 @@ function cleanData(data) {
     return cleanArr;
 }
 
-function appendJob(clean) {
+function appendInLineJob(clean) {
     console.log(clean);
+    clean.forEach(function(element) {
+        if (element.status === 'Waiting') {
+            console.log(true);
+        }
+        console.log(element.status);
+    })
+    return clean;
+}
+
+function appendJob(clean) {
     noJobs(clean)
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
@@ -73,7 +84,7 @@ function appendJob(clean) {
         clean
     };
     let html = template(context);
-    $('#active-job').html(html);
+    $('#jobs').html(html);
     // return user.id;
 
     endJob();
