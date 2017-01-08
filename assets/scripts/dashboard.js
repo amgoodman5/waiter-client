@@ -2,10 +2,10 @@ const SERVER_URL = getUrl();
 const CLIENT_URL = getUrl2();
 
 $(document).ready(function() {
-  console.log(document.cookie);
-  let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    console.log(document.cookie);
+    let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-  $('#user-name').html(`${cookieValue}'s Requests`);
+    $('#user-name').html(`${cookieValue}'s Requests`);
     $('.collapse').collapse();
     logOut();
     getJob()
@@ -64,6 +64,7 @@ function cleanData(data) {
 
 function appendJob(clean) {
     console.log(clean);
+    noJobs(clean)
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
@@ -89,19 +90,29 @@ function endJob() {
             method: "DELETE",
             data: jobObj,
             dataType: "json",
-            success:function(){
-              window.location.replace(`${CLIENT_URL}/dashboard.html`);
+            success: function() {
+                window.location.replace(`${CLIENT_URL}/dashboard.html`);
             }
         });
     });
 }
 
-function logOut(){
-  $('#log-out').on('click',function(event){
-    event.preventDefault();
-    $.get(`${SERVER_URL}/authAPI/logout`)
-    .then(()=>{
-      return window.location.replace(`${CLIENT_URL}`);
+function noJobs(clean) {
+    console.log(clean);
+    if (clean.length === 0) {
+        console.log(false);
+        $('.no-job').append(`<h1>No Current Requests</h1>`)
+    } else {
+        $('.no-job').empty()
+    }
+}
+
+function logOut() {
+    $('#log-out').on('click', function(event) {
+        event.preventDefault();
+        $.get(`${SERVER_URL}/authAPI/logout`)
+            .then(() => {
+                return window.location.replace(`${CLIENT_URL}`);
+            });
     });
-  });
 }

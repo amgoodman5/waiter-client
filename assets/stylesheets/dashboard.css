@@ -52,6 +52,9 @@ a.navbar-brand {
   padding: 0!important;
 }
 
+.collapse {
+  padding-bottom: 1em;
+}
 
 .limbo-tagline {
   width: 100%;
