@@ -114,6 +114,14 @@ a.navbar-brand {
     border-right: 1em solid #E9FFF1;
 }
 
+.Waiting {
+  border-right: 1em solid red;
+}
+
+.Completed {
+  border-right: 1em solid black;
+}
+
 .contact-card {
   display: flex!important;
   flex-direction: row;
