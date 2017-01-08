@@ -143,22 +143,52 @@ a.navbar-brand {
   height: 8em;
 }
 
-/*.place {
-  background-color: #FFF7DC!important;
+#place {
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.waiter {
-  background-color: #ECF3FF!important;
-}*/
+#place .row {
+  display: flex;
+  justify-content: flex-start;
+}
 
+.location-icon {
+  display: flex;
+  justify-content: center;
+}
 
+.location-icon i {
+  padding-left: 2em;
+}
 
-.contact-col {
-  height: 100%;
+.location-info {
+  padding-left: 2em!important;
+  display: flex;
+  align-items: center;
+}
+
+.location-info p {
+  margin: 0;
+}
+
+.active-time-label {
+  margin: 0;
+}
+
+.waiting-status {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.contact-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-right: 3em!important;
 }
 
