@@ -10,7 +10,7 @@ $(document).ready(() => {
             <div class="card"><div class="row" role="tab" id="card-header">
             <div class=" job-headers"><h2><a class="collapsed" data-toggle="collapse"
             data-target="#${job.id}" aria-expanded="false" aria-controls="collapseExample">
-            <h4>${job.name}</h4></a>  <div class="collapse" id="${job.id}">
+            <h4>JOB : ${job.name}</h4></a>  <div class="collapse" id="${job.id}">
             <div class="card card-block"><div class="panel-body"><h4>Address: ${job.address}</h4>
             <h4>Starts: ${job.start_time}</h4><h4>Date: ${job.date}</h4>
             <button data-id="${job.id}"class="btn btn-warning card-link accept-button"
