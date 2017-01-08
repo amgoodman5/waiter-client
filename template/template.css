@@ -6,8 +6,13 @@ body {
 
 /*nav*/
 
+/*nav*/
 a.navbar-brand {
-  color:white!important;
+    font-size: 2em;
+    color:white!important;
+}
+div#bs-example-navbar-collapse-1 {
+    background-color: hsla(210, 22%, 29%, 0.4);
 }
 .navbar-custom {
   background: #2C3E50;
@@ -29,13 +34,15 @@ button#nav_buttons {
     padding-top: 1em;
     margin-right: 10px;
     padding-bottom: 1em;
+    padding-right: 2em;
+    padding-left: 2em;
     background-color: orange;
     border: none;
-    color:white;
-
+    color: white;
     /* margin-right: 1em; */
     min-width: 6em;
 }
+
 button#nav_buttons:hover {
     background-color: #c78203;
     transition: all 0.5s;
@@ -58,6 +65,26 @@ a:hover{
       min-width: 10em;
       margin-right: 10px;
   }
+}
+
+/*nav bar styles*/
+
+
+/*button*/
+button#drive_btn {
+    margin-left: 1em!important;
+}
+
+a#buttons {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: orange;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
+}
+a#buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s  ;
 }
 /*jumbotron*/
 

@@ -14,7 +14,38 @@
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
     </head>
-    <body>
+
+      <body class="">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="hamburger"></span>
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LineWaiter</a>
+                </div>
+
+                <!--dropdown---->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="button-time">
+                           <button type="drive-btn" class="btn btn-default navbar-btn" id="nav_buttons"><a href="/index.html">BACK</button></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  <main class="main">
+        <div class="jumbotron">
+            <p class="limbo-tagline">SIGN UP TODAY </p>
+            <div class="row job-request">
+                <a class="btn btn-warning" href="/index.html">
+                  BACK
+                </a>
+            </div>
+        </div>
 
         <section class="sign-up-main">
             <h1>SIGN UP!</h1>
@@ -72,6 +103,7 @@
                 <button class="btn btn-primary" type="submit" name="button" id="buttons">Submit</button>
             </form>
         </section>
+      </main>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

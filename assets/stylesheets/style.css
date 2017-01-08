@@ -196,6 +196,11 @@ header .header-content .header-content-inner p {
 
 
 /*about*/
+section#about {
+    padding-bottom: 5%;
+    padding-top: 5%;
+    background-color: rgba(44, 62, 80, 0.11);
+}
 
 /*.row
 {
