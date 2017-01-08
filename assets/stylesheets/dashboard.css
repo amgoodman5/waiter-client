@@ -53,9 +53,12 @@ a.navbar-brand {
 }
 
 .collapse {
-  padding-bottom: 1em;
+  margin-bottom: 1em;
 }
 
+.active-cost {
+  margin: 0;
+}
 .limbo-tagline {
   width: 100%;
   color: #fff;
@@ -115,7 +118,7 @@ a.navbar-brand {
 }
 
 .Waiting {
-  border-right: 1em solid red;
+  border-right: 1em solid #E893A7;
 }
 
 .Completed {
@@ -156,6 +159,7 @@ a.navbar-brand {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-right: 3em!important;
 }
 
 .contact-col .row {
@@ -218,7 +222,7 @@ a.navbar-brand {
 .cost-column {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 footer {
