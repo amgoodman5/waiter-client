@@ -40,8 +40,10 @@ function getJob() {
 
 function cleanData(data) {
     console.log(data);
+
     let cleanArr = data;
     cleanArr.forEach(function(element) {
+        let phoneform = formatPhoneNumber(element.waiter.phone_number);
         let date = moment(element.date).format('MM-DD-YYYY');
         element.postdate = moment(date).format('MMM-DD');
         let start = moment(element.start_time, 'H:mm:ss').format('H:mm');
@@ -63,6 +65,7 @@ function cleanData(data) {
         element.start_time = moment(element.start_time, 'H:mm:ss').format('h:mma');
         element.time = moment(element.time, 'H:mm').format('h:mma');
         element.date = date;
+        element.waiter.phone_number = phoneform;
     });
     return cleanArr;
 }
@@ -182,4 +185,10 @@ function logOut() {
                 return window.location.replace(`${CLIENT_URL}`);
             });
     });
+}
+
+function formatPhoneNumber(str) {
+    var str2 = ("" + str).replace(/\D/g, '');
+    var m = str2.match(/^(\d{3})(\d{3})(\d{4})$/);
+    return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
 }
