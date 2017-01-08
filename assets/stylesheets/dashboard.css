@@ -54,6 +54,7 @@ a.navbar-brand {
 
 .collapse {
   margin-bottom: 1em;
+
 }
 
 .active-cost {
@@ -176,6 +177,7 @@ a.navbar-brand {
 .active-time-label {
   margin: 0;
 }
+
 
 .waiting-status {
   display: flex;
