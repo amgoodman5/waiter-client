@@ -10,7 +10,7 @@ a.navbar-brand {
   color:white!important;
 }
 .navbar-custom {
-  background: #2C3E50!important;
+  background: #2C3E50;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -22,12 +22,43 @@ a.navbar-brand {
   font-size: 10px;
   border-color: white;
 }
+ul.nav.navbar-nav.navbar-right {
+    display: flex;
+}
+button#nav_buttons {
+    padding-top: 1em;
+    margin-right: 10px;
+    padding-bottom: 1em;
+    background-color: orange;
+    border: none;
+    color:white;
 
-.nav {
-  display: flex;
-  justify-content: space-between;
+    /* margin-right: 1em; */
+    min-width: 6em;
+}
+button#nav_buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s;
+}
+.nav a{
+  color:white;
+}
+a:hover{
+  text-decoration:none;
+
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button#nav_buttons {
+      padding-bottom: 1em;
+      background-color: orange;
+      border: none;
+      color: white;
+      min-width: 10em;
+      margin-right: 10px;
+  }
+}
 /*jumbotron*/
 
 .main {
