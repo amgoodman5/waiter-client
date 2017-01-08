@@ -1,5 +1,65 @@
 a.navbar-brand {
   color:white!important;
+}button#nav_buttons {
+    padding-top: 1em;
+    margin-right: 10px;
+    padding-bottom: 1em;
+    padding-right: 2em;
+    padding-left: 2em;
+    background-color: orange;
+    border: none;
+    color: white;
+    /* margin-right: 1em; */
+    min-width: 6em;
+}
+
+button#nav_buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s;
+}
+.nav a{
+  color:white;
+}
+a:hover{
+  text-decoration:none;
+
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button#nav_buttons {
+      padding-bottom: 1em;
+      background-color: orange;
+      border: none;
+      color: white;
+      min-width: 10em;
+      margin-right: 10px;
+  }
+}
+
+/*nav bar styles*/
+
+h4:hover {
+    color: white;
+}
+/*button*/
+button#drive_btn {
+    margin-left: 1em!important;
+}
+ul.nav.navbar-nav.navbar-right {
+    display: flex;
+    justify-content: center;
+}
+a#buttons {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: orange;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
+}
+a#buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s  ;
 }
 .navbar-custom {
   background: #2C3E50;
@@ -80,7 +140,7 @@ div#accordion {
     padding: 15px;
     min-width: 70%;
     margin-top: 15px;
-    /* border-radius: 5px; */
+     border-radius: 5px;
     background: rgba(0,0,0,.5);
 }
 .card.card-block {
@@ -103,11 +163,15 @@ h1.billboard-title {
     /* align-self: center; */
 }
 div#card-header {
-    border-radius: 5px;
-    background-color: white;
+    border-radius: 2px;
+    /* background-color: #a94442; */
     display: flex;
     justify-content: flex-start;
     padding-left: 7px;
+}
+h4 {
+    color: #f0ad4e;
+    text-align: left;
 }
 .jumbotron {
   width: 100%;
@@ -130,6 +194,8 @@ div#card-header {
     justify-content: center;
     margin-top: 3.6em;
 }
+
+
 footer {
     padding-top: 1%;
     height: 3em;
