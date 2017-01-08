@@ -5,7 +5,11 @@ body{
 /*nav bar styles*/
 /*nav*/
 a.navbar-brand {
-  color:white!important;
+    font-size: 2em;
+    color:white!important;
+}
+div#bs-example-navbar-collapse-1 {
+    background-color: hsla(210, 22%, 29%, 0.4);
 }
 .navbar-custom {
   background: #2C3E50;
@@ -26,15 +30,16 @@ ul.nav.navbar-nav.navbar-right {
 button#nav_buttons {
     padding-top: 1em;
     margin-right: 10px;
-
     padding-bottom: 1em;
+    padding-right: 2em;
+    padding-left: 2em;
     background-color: orange;
     border: none;
-    color:white;
-
+    color: white;
     /* margin-right: 1em; */
     min-width: 6em;
 }
+
 button#nav_buttons:hover {
     background-color: #c78203;
     transition: all 0.5s;
