@@ -36,6 +36,7 @@ function getJob() {
 }
 
 function cleanData(data) {
+    console.log(data);
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let date = moment(element.date).format('MM-DD-YYYY');
@@ -57,6 +58,7 @@ function cleanData(data) {
             element.cost = 0;
         }
         element.start_time = moment(element.start_time, 'H:mm:ss').format('h:mma');
+        element.time = moment(element.time, 'H:mm').format('h:mma');
         element.date = date;
     });
     return cleanArr;
@@ -98,7 +100,6 @@ function endJob() {
 }
 
 function noJobs(clean) {
-    console.log(clean);
     if (clean.length === 0) {
         console.log(false);
         $('.no-job').append(`<h1>No Current Requests</h1>`)

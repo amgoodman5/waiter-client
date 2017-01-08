@@ -122,6 +122,15 @@ a.navbar-brand {
   border-right: 1em solid black;
 }
 
+.no-job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0!important;
+  padding-top: 2em;
+}
+
 .contact-card {
   display: flex!important;
   flex-direction: row;
