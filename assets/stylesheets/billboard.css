@@ -26,7 +26,9 @@ a.navbar-brand {
   padding: 0!important;
 }
 
-
+h4{
+  text-align:left;
+}
 .limbo-tagline {
   width: 100%;
   color: #fff;
@@ -64,20 +66,22 @@ div#accordion {
 a{
   cursor:pointer;
 }
+
 section.job_cards {
     width: 100%;
-    background-color: #2c3e50;
+    background-color: #fff;
     padding-bottom: 5%;
+    box-shadow: 1px 1px 1px 1px;
 }
 div#accordion {
     border: solid;
     border-width: 0;
-    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.65);
+    box-shadow: 1px 1px 1px 1px;
     padding: 15px;
     min-width: 70%;
     margin-top: 15px;
-    border-radius: 5px;
-    background: #fff;
+    /* border-radius: 5px; */
+    background: rgba(0,0,0,.5);
 }
 .card.card-block {
     border-radius: 5px;
@@ -99,11 +103,12 @@ h1.billboard-title {
     /* align-self: center; */
 }
 div#card-header {
+    border-radius: 5px;
+    background-color: white;
     display: flex;
     justify-content: flex-start;
+    padding-left: 7px;
 }
-
-
 .jumbotron {
   width: 100%;
   height: 10em;
