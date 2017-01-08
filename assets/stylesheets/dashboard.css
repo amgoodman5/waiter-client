@@ -52,6 +52,9 @@ a.navbar-brand {
   padding: 0!important;
 }
 
+.collapse {
+  padding-bottom: 1em;
+}
 
 .limbo-tagline {
   width: 100%;
@@ -109,6 +112,14 @@ a.navbar-brand {
 
 .Requested .list-group-item {
     border-right: 1em solid #E9FFF1;
+}
+
+.Waiting {
+  border-right: 1em solid red;
+}
+
+.Completed {
+  border-right: 1em solid black;
 }
 
 .contact-card {
