@@ -20,7 +20,13 @@ a.navbar-brand {
   font-size: 10px;
   border-color: white;
 }
+.nav a{
+  color:white;
+}
+a:hover{
+  text-decoration:none;
 
+}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -69,7 +75,7 @@ a:hover {
     color: white;
     /* margin-right: 1em; */
     min-width: 6em;
-  
+
 }
 .main {
   display: flex;
@@ -350,6 +356,10 @@ footer p {
         color: white;
         min-width: 10em;
         margin-right: 10px;
+    }
+    .accordion-header {
+        padding-bottom: .5%;
+
     }
     .col-xs-4.accordion-label.reqtime {
         padding-right:10%;

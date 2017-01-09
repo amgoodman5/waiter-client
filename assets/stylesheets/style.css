@@ -201,6 +201,8 @@ section#about {
     padding-bottom: 5%;
     padding-top: 5%;
     background-color: rgba(44, 62, 80, 0.11);
+    /*background-image:url("../images/gradiant.png");*/
+      );
 }
 
 /*.row
@@ -220,7 +222,7 @@ div#box {
 }
 .portfolio-box .portfolio-box-caption {
     color: white;
-    opacity: 0;
+    opacity: 1;
     display: block;
     background: rgba(255, 165, 0, 0.67);
     position: absolute;
@@ -253,7 +255,7 @@ div#box {
   font-size: 18px;
 }
 .portfolio-box:hover .portfolio-box-caption {
-  opacity: 1;
+  opacity: 0;
 }
 .portfolio-box:focus {
   outline: none;

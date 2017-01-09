@@ -313,6 +313,10 @@ footer p {
         min-width: 10em;
         margin-right: 10px;
     }
+    .accordion-header {
+        padding-bottom: .5%;
+
+    }
     .col-xs-4.accordion-label.reqtime {
         padding-right:10%;
 

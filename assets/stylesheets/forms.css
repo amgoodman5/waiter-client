@@ -84,6 +84,14 @@ ul.nav.navbar-nav.navbar-right {
     display: flex;
 }
 
+.nav a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 button#nav_buttons {
     padding-top: 1em;
     margin-right: 10px;
