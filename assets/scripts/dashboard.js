@@ -68,9 +68,8 @@ function cleanData(data) {
         element.date = moment(date).format('MMM-D');
         let phoneform = formatPhoneNumber(element);
         if (element.waiter_id) {
-
+            element.waiter.phone_number = phoneform;
         }
-        // element.waiter.phone_number = phoneform;
     });
     return cleanArr;
 }
