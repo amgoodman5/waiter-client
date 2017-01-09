@@ -90,9 +90,9 @@
                             <div class="col-xs-3 job-headers">
                                 <form class="form-inline">
                                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0 select-list" id="inlineFormCustomSelect">
-                                        <option class="status-option" data-id="{{this.job_id}}">Accepted</option>
-                                        <option class="status-option" data-id="{{this.job_id}}">Waiting</option>
-                                        <option class="status-option" data-id="{{this.job_id}}">Completed</option>
+                                        <option class="status-option" data-id="{{this.job_id}}"{{#if this.accepted}}selected{{/if}}>Accepted</option>
+                                        <option class="status-option" data-id="{{this.job_id}}"{{#if this.waiting}}selected{{/if}}>Waiting</option>
+                                        <option class="status-option" data-id="{{this.job_id}}"{{#if this.completed}}selected{{/if}}>Completed</option>
                                     </select>
                                 </form>
                             </div>
