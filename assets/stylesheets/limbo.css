@@ -4,7 +4,6 @@
     flex-direction: column;
 }
 
-
 /* nav button*/
 
 ul.nav.navbar-nav.navbar-right {
@@ -62,8 +61,8 @@ button#drive_btn {
 }
 
 a#buttons {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 3em;
+    padding-bottom: 3em;
     background-color: orange;
     border: none;
     box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
@@ -207,6 +206,9 @@ button#drive_btn {
     height: 20em;
 }
 
+.whitespace {
+    padding: 10%;
+}
 footer {
     padding-top: 1%;
     height: 3em;
