@@ -5,6 +5,7 @@
     padding:none;
 }
 
+
 /* nav button*/
 
 ul.nav.navbar-nav.navbar-right {
@@ -154,12 +155,11 @@ button#drive_btn {
     justify-content: center;
 }
 .btn-warning {
-    padding-right: 5%;
-    padding-left: 5%;
     color: #fff;
+    padding-left: 5em!important;
+    padding-right: 5em!important;
     background-color: #f0ad4e;
     border-color: #eea236;
-    box-shadow: 1px 1px 1px 1px rgba(82, 78, 78, 0.82);
 }
 .autocomplete-box {
     height: 18em;
