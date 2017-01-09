@@ -72,6 +72,19 @@ function cleanData(data) {
         let phoneform = formatPhoneNumber(element);
         console.log(phoneform);
         // element.waiter.phone_number = phoneform;
+        if (element.status === 'Waiting') {
+          element.waiting = true;
+          element.completed = false;
+          element.accepted = false;
+        } else if (element.status === 'Completed') {
+          element.waiting = false;
+          element.completed = true;
+          element.accepted = false;
+        } else {
+          element.waiting = false;
+          element.completed = false;
+          element.accepted = true;
+        }
     });
     return cleanArr;
 }
@@ -88,6 +101,7 @@ function appendJob(clean) {
 
     updateStatus();
     totalWait();
+    return clean;
 }
 
 function updateStatus() {
