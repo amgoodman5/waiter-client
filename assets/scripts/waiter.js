@@ -134,6 +134,7 @@ function appendCompletedJob(data) {
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Completed') {
+            element.start_time = element.end_time;
             clean.push(element)
         }
     });
@@ -184,7 +185,10 @@ function updateStatus() {
             method: "PUT",
             data: jobObj,
             dataType: "application/json"
-        });
+        }).done(function(result) {
+            console.log('hello');
+            location.reload();
+        })
     });
 }
 
