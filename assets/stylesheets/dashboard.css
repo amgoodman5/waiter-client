@@ -96,6 +96,10 @@ a.navbar-brand {
   text-align: center;
 }
 
+.reqtime {
+  text-align: right;
+}
+
 .job-headers {
   display: flex;
   justify-content: flex-start;

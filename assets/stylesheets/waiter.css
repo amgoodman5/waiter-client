@@ -132,6 +132,10 @@ a.navbar-brand {
   color: grey;
 }
 
+.reqtime {
+  text-align: right;
+}
+
 .no-job {
   display: flex;
   align-items: center;

@@ -126,6 +126,7 @@ function appendAcceptedJob(data) {
     let html = template(context);
     $('#accepted-job').html(html);
     endJob();
+    updateStatus();
     return data;
 }
 
@@ -169,6 +170,7 @@ function endJob() {
 
 function updateStatus() {
     $('.select-list').on('change', function(event) {
+        console.log('running');
         let jobID = $(this).find("option:selected").data('id');
         let selected = $(this).find("option:selected").html();
         let timestamp = moment().format('MM-DD-YYYY HH:mm');
