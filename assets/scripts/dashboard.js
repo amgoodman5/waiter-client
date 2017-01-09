@@ -39,8 +39,7 @@ function getJob() {
 }
 
 function cleanData(data) {
-    console.log(data);
-
+    noJobs(data)
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
@@ -68,7 +67,9 @@ function cleanData(data) {
         element.time = moment(element.time, 'H:mm').format('h:mma');
         element.date = moment(date).format('MMM-D');
         let phoneform = formatPhoneNumber(element);
-        console.log(phoneform);
+        if (element.waiter_id) {
+
+        }
         // element.waiter.phone_number = phoneform;
     });
     return cleanArr;
@@ -76,7 +77,6 @@ function cleanData(data) {
 
 function appendInLineJob(data) {
     let clean = [];
-    noJobs(data)
     data.forEach(function(element) {
         if (element.status === 'Waiting') {
             clean.push(element)
@@ -96,7 +96,6 @@ function appendInLineJob(data) {
 }
 
 function appendAcceptedJob(data) {
-    noJobs(data)
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Accepted') {
@@ -115,7 +114,6 @@ function appendAcceptedJob(data) {
 }
 
 function appendRequestedJob(data) {
-    noJobs(data)
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Requested') {
@@ -134,7 +132,6 @@ function appendRequestedJob(data) {
 }
 
 function appendCompletedJob(data) {
-    noJobs(data)
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Completed') {
@@ -174,10 +171,9 @@ function endJob() {
 
 function noJobs(clean) {
     if (clean.length === 0) {
-        console.log(false);
-        $('.no-job').append(`<h1>No Current Requests</h1>`)
+        $('.no-job').append(`<h1>No Current Requests</h1>`);
     } else {
-        $('.no-job').empty()
+        $('.no-job').empty();
     }
 }
 

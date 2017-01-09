@@ -103,6 +103,10 @@ a.navbar-brand {
   padding: 0!important;
 }
 
+.nojob {
+  color: grey;
+}
+
 .Accepted {
   border-right: 1em solid #E9FFF1;
 }

@@ -62,7 +62,7 @@
             </div>
             <div class="accordion-job"></div>
             <div class="row current-job"></div>
-            <div class="row past-job"></div>
+            <div class="row no-job"></div>
         </main>
         <footer>
             <div class="container">
@@ -88,27 +88,6 @@
                                 </h5>
                             </div>
                             <div class="col-xs-3 job-headers">
-                                <!-- <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Action
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Accepted</a>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                        <li>
-                                            <a href="#">Waiting</a>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                        <li>
-                                            <a href="#">Completed</a>
-                                        </li>
-
-                                    </ul>
-                                </div> -->
-
                                 <form class="form-inline">
                                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0 select-list" id="inlineFormCustomSelect">
                                         <option class="status-option" data-id="{{this.job_id}}">Accepted</option>
@@ -177,7 +156,6 @@
                                                 </div>
                                             </div>
                                         {{/if}}
-
                                         <div class="row list-group-item">
                                             <div class="col-xs-6 cost-column contact-col">
                                                 <p class="active-cost-label">Amount</p>
@@ -185,22 +163,6 @@
                                             </div>
                                             <div class="col-xs-6 cost-column">
                                                 <button data-id="{{this.job_id}}" class="btn btn-warning end-job" type="submit">End Job</button>
-                                            </div>
-                                        </div>
-                                        <div class="row list-group-item">
-                                            <div class="col-xs-5">
-                                                <p class="active-time-label">Total Wait</p>
-                                                <div class="col-10">
-                                                    <input class="form-control" type="number" data-id="{{this.job_id}}" id="wait-input">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4 cost-column">
-                                                <p class="active-time-label">Remaining Wait</p>
-                                                <!-- <h3 class="active-time">${{this.cost}}</h3> -->
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <p class="active-time-label">Total Wait Time</p>
-                                                <h3 class="active-time">{{this.active_time}}</h3>
                                             </div>
                                         </div>
                                     </div>
