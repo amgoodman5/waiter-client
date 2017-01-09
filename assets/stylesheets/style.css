@@ -11,10 +11,10 @@ span {
 }
 /*nav bar styles*/
 /*nav*/
-a.navbar-brand {
+/*a.navbar-brand {
 
     color:white!important;
-}
+}*/
 div#bs-example-navbar-collapse-1 {
     background-color: hsla(210, 22%, 29%, 0.4);
 }
