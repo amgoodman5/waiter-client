@@ -1,11 +1,12 @@
 const JOB_URL = getUrl();
-const JOB_URL2 = getUrl1()
+const JOB_URL2 = getUrl1();
 
 $(document).ready(() => {
     getJob()
         .then((jobs) => {
             console.log(jobs);
             jobs.forEach((job) => {
+
                 let cleanDate = moment(jobs.date).format('MMMM Do YYYY');
                 let cleanTime = moment(jobs.time).format('h:mm a');
                 var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
@@ -19,7 +20,9 @@ $(document).ready(() => {
             type="submit">Accept Job</button></div>
              <div class="panel-body"></div>
             </div></div></div></div></div></div>`
+                console.log(card)
                 $(".job_cards").append(card)
+                conso
             });
 
 

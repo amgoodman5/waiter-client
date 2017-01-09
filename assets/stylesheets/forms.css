@@ -116,6 +116,67 @@ footer p {
     color: white;
 }
 
+ul.nav.navbar-nav.navbar-right {
+    display: flex;
+}
+button#nav_buttons {
+    padding-top: .5em;
+    margin-right: 10px;
+    padding-bottom: .5em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background-color: orange;
+    border: none;
+    color: white;
+    /* margin-right: 1em; */
+    min-width: 6em;
+}
+
+button#nav_buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s;
+}
+.nav a{
+  color:white;
+}
+a:hover{
+  text-decoration:none;
+
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button#nav_buttons {
+      padding-bottom: .5em;
+      padding-top: .5em;
+      background-color: orange;
+      border: none;
+      color: white;
+      min-width: 10em;
+      margin-right: 10px;
+  }
+}
+
+/*nav bar styles*/
+
+
+/*button*/
+button#drive_btn {
+    margin-left: 1em!important;
+}
+
+a#buttons {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: orange;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
+}
+a#buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s  ;
+}
+
 
 
 ul.nav.navbar-nav.navbar-right {
