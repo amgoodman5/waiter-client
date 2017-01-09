@@ -2,6 +2,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    padding:none;
 }
 
 /* nav button*/
@@ -129,6 +130,10 @@ button#drive_btn {
     margin: 0px!important;
     text-align: center;
 }
+.overlay {
+    background-color: rgba(0, 0, 0, 0.42);
+    height: 100%;
+}
 
 .job-request {
     margin: 0!important;
@@ -148,7 +153,14 @@ button#drive_btn {
     flex-direction: column;
     justify-content: center;
 }
-
+.btn-warning {
+    padding-right: 5%;
+    padding-left: 5%;
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    box-shadow: 1px 1px 1px 1px rgba(82, 78, 78, 0.82);
+}
 .autocomplete-box {
     height: 18em;
 }
@@ -166,7 +178,9 @@ button#drive_btn {
     display: flex;
     justify-content: space-around;
 }
-
+.row.time-date {
+    padding-top: 2%;
+}
 .button-row {
     display: flex;
     justify-content: center;
@@ -196,6 +210,24 @@ button#drive_btn {
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 3em!important;
+    padding: 10%;
+    font-size: 14px;
+    line-height: 1.42857143;
+
 }
 
 .image-holder {
