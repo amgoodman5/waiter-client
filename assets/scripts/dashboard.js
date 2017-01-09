@@ -43,7 +43,6 @@ function cleanData(data) {
 
     let cleanArr = data;
     cleanArr.forEach(function(element) {
-        // let phoneform = formatPhoneNumber(element.waiter.phone_number);
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
         let date = moment(element.date, 'ISO_8601').format('MM-DD-YYYY');
         let start = moment(element.start_time, 'HH:MM:SS').format('HH:MM');
@@ -53,23 +52,23 @@ function cleanData(data) {
         let duration = nowDur.diff(datetime, 'minutes');
         let duration2 = nowDur.diff(datetime);
         let newEffort = moment.duration(nowDur - datetimeDur);
-        console.log(newEffort);
         let durationClean = moment(newEffort._data).format("H[h] m[m]");
-        console.log(durationClean);
         if (duration > 0) {
             element.active_time = durationClean;
         } else {
             element.active_time = "Not Started";
         }
         if (element.active_time != 'Not Started') {
-            let cost = (duration * .2).toFixed(2);
+            let cost = (duration * 0.2).toFixed(2);
             element.cost = cost;
         } else {
             element.cost = 0;
         }
         element.start_time = moment(element.start_time, 'H:mm:ss').format('h:mma');
         element.time = moment(element.time, 'H:mm').format('h:mma');
-        element.date = date;
+        element.date = moment(date).format('MMM-D');
+        let phoneform = formatPhoneNumber(element);
+        console.log(phoneform);
         // element.waiter.phone_number = phoneform;
     });
     return cleanArr;
@@ -192,8 +191,12 @@ function logOut() {
     });
 }
 
-function formatPhoneNumber(str) {
-    var str2 = ("" + str).replace(/\D/g, '');
-    var m = str2.match(/^(\d{3})(\d{3})(\d{4})$/);
-    return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
+function formatPhoneNumber(element) {
+    if (element.waiter_id) {
+        var str2 = ("" + element.waiter.phone_number).replace(/\D/g, '');
+        var m = str2.match(/^(\d{3})(\d{3})(\d{4})$/);
+        return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
+    } else {
+        return 'No Number Listed';
+    }
 }
