@@ -124,7 +124,7 @@ button#drive_btn {
 }
 .form {
     border-radius: 0px;
-    background: rgba(44, 62, 80, 0.31);
+    /*background: rgba(44, 62, 80, 0.31);*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -197,6 +197,7 @@ button#drive_btn {
 .time-date {
     display: flex;
     justify-content: space-around;
+    /*padding-top: 0!important;*/
 }
 .row.time-date {
     padding-top: 2%;
