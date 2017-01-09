@@ -70,7 +70,9 @@
             </div>
         </main>
         <footer>
-            <p>&copy; 2016 Dillon & Friends All Rights Reserved.</p>
+            <div class="container">
+                <p>&copy; 2016 Dillon & Friends All Rights Reserved.</p>
+            </div>
         </footer>
         <script id="job-template" type="text/x-handlebars-template">
             <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -108,63 +110,64 @@
                                             <h3 class="active-time">{{this.status}}</h3>
                                         </div>
                                     </div>
-                                    <div class="row contact-card list-group-item" id="place">
-                                        <div class="row">
-                                            <div class="col-xs-3 location-icon">
-                                                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                    {{#if this.waiter}}
+                                        <div class="row contact-card waiter list-group-item">
+                                            <div class="col-xs-6 contact-col">
+                                                <i class="fa fa-user fa-4x" aria-hidden="true"></i>
+                                                <p class="">{{this.waiter.fname}}</p>
                                             </div>
-                                            <div class="col-xs-9 location-info">
-                                                <p class="">{{this.name}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3 location-icon">
-                                                <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="col-xs-9 location-info">
-                                                <p class="">
-                                                    <a href="tel:{{this.phone_number}}">{{this.phone_number}}</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3 location-icon">
-                                                <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="col-xs-9 location-info">
-                                                <p class="">{{this.address}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{#if this.waiter}}
-                                            <div class="row contact-card waiter list-group-item">
-                                                <div class="col-xs-6 contact-col">
-                                                    <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-                                                    <p class="">{{this.waiter.fname}}</p>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="row">
-                                                        <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
-                                                        <p class="">
-                                                            <a href="tel:{{this.phone_number}}">{{this.waiter.phone_number}}</a>
-                                                        </p>
-                                                    </div>
-                                                </p>
+                                            <div class="col-xs-6">
                                                 <div class="row">
-                                                    <i class="fa fa-commenting-o fa-2x contact-icon" aria-hidden="true"></i>
-                                                    <a href="#">Send Message</a>
+                                                    <i class="fa fa-phone fa-2x contact-icon" aria-hidden="true"></i>
+                                                    <p class="">
+                                                        <a href="tel:{{this.phone_number}}">{{this.waiter.phone_number}}</a>
+                                                    </p>
                                                 </div>
+                                            </p>
+                                            <div class="row">
+                                                <i class="fa fa-commenting-o fa-2x contact-icon" aria-hidden="true"></i>
+                                                <a href="#">Send Message</a>
                                             </div>
                                         </div>
+                                    </div>
 
-                                    {{/if}}
+                                {{/if}}
+                                <div class="row contact-card list-group-item" id="place">
+                                    <div class="row">
+                                        <div class="col-xs-3 location-icon">
+                                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-xs-9 location-info">
+                                            <p class="">{{this.name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3 location-icon">
+                                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-xs-9 location-info">
+                                            <p class="">
+                                                <a href="tel:{{this.phone_number}}">{{this.phone_number}}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3 location-icon">
+                                            <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-xs-9 location-info">
+                                            <p class="">{{this.address}}
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row list-group-item">
                                         <div class="col-xs-6 cost-column contact-col">
                                             <p class="active-cost-label">Cost</p>
                                             <h3 class="active-cost">${{this.cost}}</h3>
                                         </div>
                                         <div class="col-xs-6 cost-column">
-                                            <button data-id="{{this.job_id}}" class="btn btn-warning end-job" type="submit">End Job</button>
+                                            <button data-id="{{this.job_id}}" class="btn btn-warning end-job" type="submit">Clear Job</button>
                                         </div>
                                     </div>
                                 </div>
