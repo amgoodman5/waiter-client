@@ -155,12 +155,12 @@ button#drive_btn {
     justify-content: center;
 }
 .btn-warning {
-    color: #fff;
-    padding-left: 5em!important;
-    padding-right: 5em!important;
-    background-color: #f0ad4e;
-    border-color: #eea236;
-}
+      padding-top: 1em!important;
+      padding-bottom: 1em!important;
+      background-color: orange;
+      border: none;
+      box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97)!important;
+  }
 .autocomplete-box {
     height: 18em;
 }

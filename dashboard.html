@@ -28,19 +28,19 @@
                 </div>
                 <div class="collapse in navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="">
-                            <button type="drive-btn" class="btn btn-default navbar-btn">
-                                <a href="/profile.html">My Profile</a>
+                        <li class="button-time">
+                            <button type="drive-btn" class="btn btn-default navbar-btn"id="nav_buttons">
+                                <a href="/profile.html">MY PROFILE</a>
+                            </button>
+
+                        <li class="button-time">
+                            <button type="drive-btn" class="btn btn-default navbar-btn" id="nav_buttons">
+                                <a href="/waiter.html">WAITER MODE</a>
                             </button>
                         </li>
-                        <li class="">
-                            <button type="drive-btn" class="btn btn-default navbar-btn">
-                                <a href="/waiter.html">Waiter Mode</a>
-                            </button>
-                        </li>
-                        <li class="">
+                        <li class="button-time">
                             <button id="log-out" type="drive-btn" class="btn btn-default navbar-btn">
-                                <a href="/">Log Out</a>
+                                <a href="/">LOG OUT</a>
                             </button>
                         </li>
                     </ul>
@@ -49,12 +49,14 @@
         </nav>
         <main class="main">
             <div class="jumbotron">
+              <div class="overlay">
                 <p id="user-name" class="limbo-tagline"></p>
                 <div class="row job-request">
                     <a class="btn btn-warning" href="/limbo.html">
                         Make a New Request
                     </a>
                 </div>
+              </div>
             </div>
             <div class="accordion-job">
                 <div class="row accordion-header">
