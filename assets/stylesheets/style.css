@@ -2,12 +2,12 @@ body{
   min-height: 100vh;
 }
 a {
-  cursor: pointer;  
+  cursor: pointer;
 }
 /*nav bar styles*/
 /*nav*/
 a.navbar-brand {
-    font-size: 2em;
+  
     color:white!important;
 }
 div#bs-example-navbar-collapse-1 {
