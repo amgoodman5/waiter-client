@@ -48,19 +48,21 @@ function cleanData(data) {
         let date = moment(element.date, 'ISO_8601').format('MM-DD-YYYY');
         let start = moment(element.start_time, 'HH:MM:SS').format('HH:MM');
         let datetime = moment(`${date} ${element.start_time}`).format('MM-DD-YYYY HH:mm');
-
-        let nowDur = moment(now)
-        let datetimeDur = moment(datetime)
+        let nowDur = moment(now);
+        let datetimeDur = moment(datetime);
         let duration = nowDur.diff(datetime, 'minutes');
-        let durTim = moment.duration(duration, 'minutes').humanize()
-        console.log(durTim);
+        let duration2 = nowDur.diff(datetime);
+        let newEffort = moment.duration(nowDur - datetimeDur);
+        console.log(newEffort);
+        let durationClean = moment(newEffort._data).format("H[h] m[m]");
+        console.log(durationClean);
         if (duration > 0) {
-            element.active_time = duration;
+            element.active_time = durationClean;
         } else {
             element.active_time = "Not Started";
         }
         if (element.active_time != 'Not Started') {
-            let cost = duration * .2;
+            let cost = (duration * .2).toFixed(2);
             element.cost = cost;
         } else {
             element.cost = 0;
