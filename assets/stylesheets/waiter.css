@@ -100,11 +100,6 @@ a.navbar-brand {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0!important;
-}
-
-.nojob {
-  color: grey;
 }
 
 .Accepted {
@@ -130,6 +125,11 @@ a.navbar-brand {
 .Completed {
   background-color: #E8EBF7;
   font-style: italic;
+}
+
+.norequest {
+  font-size: 2em;
+  color: grey;
 }
 
 .no-job {

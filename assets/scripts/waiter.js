@@ -9,13 +9,15 @@ $.ajaxSetup({
 });
 
 $(document).ready(function() {
+    $('.collapse').collapse();
     getUserName();
     updateStatus();
-    $('.collapse').collapse();
     logOut();
     getJob()
         .then(cleanData)
-        .then(appendJob);
+        .then(appendInLineJob)
+        .then(appendAcceptedJob)
+        .then(appendCompletedJob);
     // .catch(errorFunction);
 });
 
@@ -69,38 +71,100 @@ function cleanData(data) {
         element.time = moment(element.time, 'H:mm').format('h:mma');
         element.date = moment(date).format('MMM-D');
         let phoneform = formatPhoneNumber(element);
-        console.log(phoneform);
-        // element.waiter.phone_number = phoneform;
+        if (element.waiter_id) {
+            element.waiter.phone_number = phoneform;
+        }
         if (element.status === 'Waiting') {
-          element.waiting = true;
-          element.completed = false;
-          element.accepted = false;
+            element.waiting = true;
+            element.completed = false;
+            element.accepted = false;
         } else if (element.status === 'Completed') {
-          element.waiting = false;
-          element.completed = true;
-          element.accepted = false;
+            element.waiting = false;
+            element.completed = true;
+            element.accepted = false;
         } else {
-          element.waiting = false;
-          element.completed = false;
-          element.accepted = true;
+            element.waiting = false;
+            element.completed = false;
+            element.accepted = true;
         }
     });
     return cleanArr;
 }
 
-function appendJob(clean) {
+function appendInLineJob(data) {
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Waiting') {
+            clean.push(element)
+        }
+    });
+    let source = $('#job-template').html();
+    let template = Handlebars.compile(source);
+    let context = {
+        clean
+    };
+    console.log(context);
+    let html = template(context);
+    $('#waiting-job').html(html);
+
+    endJob();
+    return data;
+}
+
+function appendAcceptedJob(data) {
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Accepted') {
+            clean.push(element)
+        }
+    });
     let source = $('#job-template').html();
     let template = Handlebars.compile(source);
     let context = {
         clean
     };
     let html = template(context);
-    $('.accordion-job').html(html);
-    // return user.id;
+    $('#accepted-job').html(html);
+    endJob();
+    return data;
+}
 
-    updateStatus();
-    totalWait();
-    return clean;
+function appendCompletedJob(data) {
+    let clean = [];
+    data.forEach(function(element) {
+        if (element.status === 'Completed') {
+            clean.push(element)
+        }
+    });
+    let source = $('#job-template').html();
+    let template = Handlebars.compile(source);
+    let context = {
+        clean
+    };
+    let html = template(context);
+    $('#completed-job').html(html);
+    endJob();
+    return data;
+}
+
+function endJob() {
+    $('.end-job').on('click', function(event) {
+        console.log(this.dataset.id);
+        let timestamp = moment().format('MM-DD-YYYY HH:mm');
+        var jobObj = {
+            id: this.dataset.id,
+            endtime: timestamp
+        };
+        // $.ajax({
+        //     url: `${SERVER_URL}/userAPI/job`,
+        //     method: "DELETE",
+        //     data: jobObj,
+        //     dataType: "json",
+        //     success: function() {
+        //         window.location.replace(`${CLIENT_URL}/dashboard.html`);
+        //     }
+        // });
+    });
 }
 
 function updateStatus() {
@@ -108,16 +172,11 @@ function updateStatus() {
         let jobID = $(this).find("option:selected").data('id');
         let selected = $(this).find("option:selected").html();
         let timestamp = moment().format('MM-DD-YYYY HH:mm');
-        console.log(jobID);
-        console.log(selected);
-        console.log(timestamp);
-
         let jobObj = {
             id: jobID,
             status: selected,
             starting_time: timestamp
         };
-        console.log(jobObj)
         $.ajax({
             url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
@@ -133,18 +192,6 @@ function noJobs(clean) {
     } else {
         $('.no-job').empty();
     }
-}
-
-function totalWait() {
-    $('#wait-input').on('change', function(event) {
-        let jobID = this.dataset.id
-        let total = $('#wait-input').val();
-        console.log(total);
-        let jobObj = {
-            id: jobID,
-            totalWait: total
-        };
-    });
 }
 
 function errorFunction(err) {
@@ -171,9 +218,9 @@ function formatPhoneNumber(element) {
     }
 }
 
-function getUserName(){
-  $.get(`${SERVER_URL}/userAPI`)
-  .then((data)=>{
-    return $('#user-job').html(`${data[0].fname}'s Jobs`);
-  });
+function getUserName() {
+    $.get(`${SERVER_URL}/userAPI`)
+        .then((data) => {
+            return $('#user-job').html(`${data[0].fname}'s Jobs`);
+        });
 }
