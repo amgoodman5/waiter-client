@@ -127,6 +127,11 @@ a.navbar-brand {
   font-style: italic;
 }
 
+.norequest {
+  font-size: 2em;
+  color: grey;
+}
+
 .no-job {
   display: flex;
   align-items: center;

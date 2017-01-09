@@ -170,7 +170,7 @@ function endJob() {
 
 function noJobs(clean) {
     if (clean.length === 0) {
-        $('.no-job').append(`<h1>No Current Requests</h1>`);
+        $('.no-job').append(`<h1 class="norequest">No Current Requests</h1>`);
     } else {
         $('.no-job').empty();
     }
