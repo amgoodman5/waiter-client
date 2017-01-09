@@ -155,15 +155,15 @@ function endJob() {
             id: this.dataset.id,
             endtime: timestamp
         };
-        // $.ajax({
-        //     url: `${SERVER_URL}/userAPI/job`,
-        //     method: "DELETE",
-        //     data: jobObj,
-        //     dataType: "json",
-        //     success: function() {
-        //         window.location.replace(`${CLIENT_URL}/dashboard.html`);
-        //     }
-        // });
+        $.ajax({
+            url: `${SERVER_URL}/userAPI/job`,
+            method: "DELETE",
+            data: jobObj,
+            dataType: "json",
+            success: function() {
+                window.location.replace(`${CLIENT_URL}/waiter.html`);
+            }
+        });
     });
 }
 
