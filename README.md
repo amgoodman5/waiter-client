@@ -14,6 +14,7 @@ LineWaiter is a decoupled app using the following:
 * Handlebars.js
 * Google Places API
 * Firebase
+
 ### Back-End
 * Node.js
 * Express.js
@@ -23,5 +24,6 @@ LineWaiter is a decoupled app using the following:
 * Bcyrpt
 * Cookie Parser
 * Heroku
+
 ### Workflow
 * This project followed an agile workflow.  Per day half the team focused on the client-side while the other half wrote server-side.
