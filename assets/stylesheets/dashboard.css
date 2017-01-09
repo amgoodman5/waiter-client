@@ -39,31 +39,20 @@ a.navbar-brand {
       text-decoration: none;
   }
 
-  @media only screen and (max-width: 768px) {
-      /* For mobile phones: */
-      button#nav_buttons {
-          padding-bottom: .5em;
-          padding-top: .5em;
-          background-color: orange;
-          border: none;
-          color: white;
-          min-width: 10em;
-          margin-right: 10px;
-      }
-  }
 
-#log-out {
-    padding-top: .5em;
-    margin-right: 10px;
-    padding-bottom: .5em;
-    padding-right: 1em;
-    padding-left: 1em;
-    background-color: orange;
-    border: none;
-    color: white;
-    /* margin-right: 1em; */
-    min-width: 6em;
-}
+  #log-out {
+      padding-top: .5em;
+      margin-right: 10px;
+      padding-bottom: .5em;
+      padding-right: 1em;
+      padding-left: 1em;
+      background-color: #337ab7;
+      border: none;
+      color: white;
+      /* margin-right: 1em; */
+      min-width: 6em;
+
+  }
 
 
 
@@ -143,11 +132,11 @@ a.navbar-brand {
     font-weight: bold;
     text-transform: uppercase;
 
-    padding-bottom: 2%;
+    padding-bottom: 1%;
     color: #2c3e50;
 }
 .col-xs-4.accordion-label.reqtime {
-    padding-right: 12%;
+    padding-right: 15%;
 }
 .accordion-job {
     display: flex;
@@ -312,4 +301,20 @@ footer {
 }
 footer p {
     color: white;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button#nav_buttons {
+        padding-bottom: .5em;
+        padding-top: .5em;
+        background-color: orange;
+        border: none;
+        color: white;
+        min-width: 10em;
+        margin-right: 10px;
+    }
+    .col-xs-4.accordion-label.reqtime {
+        padding-right:10%;
+
+    }
 }
