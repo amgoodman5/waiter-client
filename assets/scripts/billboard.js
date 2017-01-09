@@ -22,7 +22,6 @@ $(document).ready(() => {
             </div></div></div></div></div></div>`
                 console.log(card)
                 $(".job_cards").append(card)
-                conso
             });
 
 
@@ -37,8 +36,8 @@ $(document).ready(() => {
                     method: "PUT",
                     data: jobObj,
                     dataType: "json",
-                    success:function(){
-                      window.location.replace(`${JOB_URL2}/waiter.html`);
+                    success: function() {
+                        window.location.replace(`${JOB_URL2}/waiter.html`);
                     },
                     // error: errorFunction()
 
