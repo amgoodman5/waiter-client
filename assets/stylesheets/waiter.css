@@ -14,6 +14,11 @@ a.navbar-brand {
   font-weight: 700;
   border: none;
 }
+span {
+    font-style: italic;
+    font-weight: lighter;
+    color: orange;
+}
 .navbar-custom .navbar-toggle {
   color: white;
   text-transform: uppercase;

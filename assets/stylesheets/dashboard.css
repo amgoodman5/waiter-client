@@ -3,7 +3,11 @@
     min-height: 100vh;
     flex-direction: column;
 }
-
+span {
+    font-style: italic;
+    font-weight: lighter;
+    color: orange;
+}
 a.navbar-brand {
     color: white!important;
 }

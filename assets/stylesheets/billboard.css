@@ -4,6 +4,11 @@ a.navbar-brand {
 
   /*button stuff*/
 }
+span {
+    font-style: italic;
+    font-weight: lighter;
+    color: orange;
+}
 button#nav_buttons {
     padding-top: .5em;
     margin-right: 10px;

@@ -25,6 +25,11 @@ a:hover {
     text-decoration: none;
 }
 
+span {
+    font-style: italic;
+    font-weight: lighter;
+    color: orange;
+}
 button#nav_buttons {
     padding-top: .5em;
     margin-right: 10px;
