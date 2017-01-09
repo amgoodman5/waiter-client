@@ -14,6 +14,16 @@ body {
     border-radius: 5px;
     margin-top: 5%;
 }
+
+.sign-in-main {
+    padding-top: 1%;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.33);
+    border-radius: 5px;
+    margin-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
 h1 {
     padding-bottom: 2%;
     text-align: center;
@@ -26,6 +36,12 @@ label.col-xs-2.col-form-label {
 }
 #buttons {
 margin-left: 41%;
+    background-color: orange;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);
+}
+
+#sign-in-button {
     background-color: orange;
     border: none;
     box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.97);

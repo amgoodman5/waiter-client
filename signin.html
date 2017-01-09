@@ -18,10 +18,41 @@
     </head>
 
     <body>
-        <main>
+      <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+          <div class="container">
+              <div class="navbar-header page-scroll">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="hamburger"></span>
+                      <i class="fa fa-bars"></i>
+                  </button>
+                  <a class="navbar-brand" href="index.html">LineWaiter</a>
+              </div>
+
+              <!--dropdown---->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="button-time">
+                         <button type="drive-btn" class="btn btn-default navbar-btn" id="nav_buttons"><a href="/index.html">BACK</button></a>
+                      </li>
+
+                  </ul>
+              </div>
+          </div>
+      </nav>
+        <main class="main">
+          <div class="jumbotron">
+              <p class="limbo-tagline">SIGN IN </p>
+              <div class="row job-request">
+                  <a class="btn btn-warning" href="/index.html">
+                    BACK
+                  </a>
+              </div>
+          </div>
             <section class="sign-in-main">
-                <h2>SIGN IN
-                </h2>
+              <div class="row">
+                  <h3 class="text-center col-xs-10">SIGN IN</h3>
+              </div>
+
                 <form id="signin-form" class="form-inline" action="/" method="post">
                     <div class="form-group">
                         <label class="sr-only" for="signin-email">Email address</label>
@@ -31,7 +62,12 @@
                         <label class="sr-only" for="signin-password">Password</label>
                         <input name="password" type="password" class="form-control" id="signin-password" placeholder="Password" required>
                     </div>
-                    <button id="buttons" type="submit" class="btn btn-primary">Sign in</button>
+                    <div class="row">
+                      <button id="sign-in-button" type="submit" class="btn btn-primary col-xs-6">Sign In</button>
+                    </div>
+                    <div class="row">
+                      <p class="col-xs-12">Not a user? <a href="/signup.html">Sign Up!</a></p>
+                    </div>
                 </form>
             </section>
         </main>
