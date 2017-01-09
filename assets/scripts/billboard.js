@@ -6,13 +6,15 @@ $(document).ready(() => {
         .then((jobs) => {
             console.log(jobs);
             jobs.forEach((job) => {
+                let cleanDate = moment(jobs.date).format('MMMM Do YYYY');
+                let cleanTime = moment(jobs.time).format('h:mm a');
                 var card = `<div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="card"><div class="row" role="tab" id="card-header">
             <div class=" job-headers"><h2><a class="collapsed" data-toggle="collapse"
             data-target="#${job.id}" aria-expanded="false" aria-controls="collapseExample">
             <h4>${job.name}</h4></a>  <div class="collapse" id="${job.id}">
             <div class="card card-block"><div class="panel-body"><h4>Address: ${job.address}</h4>
-            <h4>Starts: ${job.start_time}</h4><h4>Date: ${job.date}</h4>
+            <h4>Starts: ${cleanTime}</h4><h4>Date: ${cleanDate}</h4>
             <button data-id="${job.id}"class="btn btn-warning card-link accept-button"
             type="submit">Accept Job</button></div>
              <div class="panel-body"></div>
@@ -31,16 +33,20 @@ $(document).ready(() => {
                     url: `${JOB_URL}/users/jobs`,
                     method: "PUT",
                     data: jobObj,
-                    dataType: "application/json"
+                    dataType: "json",
+                    success:function(){
+                      window.location.replace(`${JOB_URL2}/waiter.html`);
+                    },
+                    // error: errorFunction()
 
                 });
-                $.get(`${JOB_URL}/users/jobs`)
-                    .then(() => {
-                        window.location.replace(`${JOB_URL2}/waiter.html`);
-                    }).catch(function(error) {
-                        console.error(error);
-                    });
-            })
+                // $.get(`${JOB_URL}/users/jobs`)
+                //     .then(() => {
+                //         window.location.replace(`${JOB_URL2}/waiter.html`);
+                //     }).catch(function(error) {
+                //         console.error(error);
+                //     });
+            });
         })
         .catch(errorFunction);
 });
