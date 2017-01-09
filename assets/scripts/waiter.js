@@ -49,24 +49,23 @@ function cleanData(data) {
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
         let date = moment(element.date, 'ISO_8601').format('MM-DD-YYYY');
         element.now = date;
-        let start = moment(element.start_time, 'HH:MM:SS').format('HH:MM');
-        let end = moment(element.end_time, 'HH:MM:SS').format('HH:MM');
+        let start = moment(element.start_time, 'HH:mm:ss').format('HH:mm');
+        let end = moment(`${date} ${element.end_time}`).format('MM-DD-YYYY HH:mm');
         let datetime = moment(`${date} ${element.start_time}`).format('MM-DD-YYYY HH:mm');
         let nowDur = moment(now);
         let nowDur2 = moment(end);
         let datetimeDur = moment(datetime);
         let duration = nowDur.diff(datetime, 'seconds');
-        let duration2 = nowDur.diff(datetime);
+        let duration2 = nowDur2.diff(datetime, 'seconds');
         let newEffort = moment.duration(nowDur - datetimeDur);
         let endEffort = moment.duration(nowDur2 - datetimeDur);
         let durationClean = moment(newEffort._data).format("H[h] m[m]");
         let endDurationClean = moment(endEffort._data).format("H[h] m[m]");
-        console.log(endDurationClean);
         if (duration > 0) {
             if (element.status === 'Completed') {
-                element.active_time = 'Over';
+                element.active_time = endDurationClean;
             } else if (element.status === 'Accepted') {
-                element.active_time = 'Not Started'
+                element.active_time = 'Not Started';
             } else {
                 element.active_time = durationClean;
             }
@@ -74,8 +73,13 @@ function cleanData(data) {
             element.active_time = 'Not Started';
         }
         if (element.active_time != 'Not Started') {
-            let cost = (duration * 0.0033).toFixed(2);
-            element.cost = cost;
+            if (element.status === 'Completed') {
+                let cost = (duration2 * 0.0033).toFixed(2);
+                element.cost = cost;
+            } else {
+                let cost = (duration * 0.0033).toFixed(2);
+                element.cost = cost;
+            }
         } else {
             element.cost = 0;
         }
