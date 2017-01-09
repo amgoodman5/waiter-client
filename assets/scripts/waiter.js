@@ -180,6 +180,7 @@ function updateStatus() {
             status: selected,
             starting_time: timestamp
         };
+        $.post(`${SERVER_URL}/emailAPI`,jobObj);
         $.ajax({
             url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
