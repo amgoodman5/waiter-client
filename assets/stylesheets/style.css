@@ -87,7 +87,7 @@ a#buttons:hover {
 
 .parallax {
     /* The image used */
-    background-image: url("../images/causal.jpg");
+    background-image: url("../images/casual.jpg");
 
     /* Set a specific height */
      height: 50%;
@@ -245,9 +245,9 @@ div#box {
   padding: 0 15px;
 }
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3em;
 }
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   font-size: 18px;
