@@ -2,11 +2,8 @@ const SERVER_URL = getUrl();
 const CLIENT_URL = getUrl2();
 
 $(document).ready(function() {
-    console.log(document.cookie);
-    let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-    $('#user-name').html(`${cookieValue}'s Requests`);
     $('.collapse').collapse();
+    getUserName();
     logOut();
     getJob()
         .then(cleanData)
@@ -194,4 +191,11 @@ function formatPhoneNumber(element) {
     } else {
         return 'No Number Listed';
     }
+}
+
+function getUserName(){
+  $.get(`${SERVER_URL}/userAPI`)
+  .then((data)=>{
+    return $('#user-name').html(`${data[0].fname}'s Requests`);
+  });
 }
