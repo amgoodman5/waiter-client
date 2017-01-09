@@ -9,8 +9,7 @@ $.ajaxSetup({
 });
 
 $(document).ready(function() {
-    let cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)userName\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    $('#user-job').html(`${cookieValue}'s Jobs`);
+    getUserName();
     updateStatus();
     $('.collapse').collapse();
     logOut();
@@ -170,4 +169,11 @@ function formatPhoneNumber(element) {
     } else {
         return 'No Number Listed';
     }
+}
+
+function getUserName(){
+  $.get(`${SERVER_URL}/userAPI`)
+  .then((data)=>{
+    return $('#user-job').html(`${data[0].fname}'s Jobs`);
+  });
 }
