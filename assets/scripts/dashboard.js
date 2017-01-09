@@ -59,6 +59,8 @@ function cleanData(data) {
                 element.active_time = 'Over';
             } else if (element.status === 'Accepted') {
                 element.active_time = 'Not Started'
+            } else if (element.status === 'Requested') {
+                element.active_time = 'Not Started'
             } else {
                 element.active_time = durationClean;
             }
