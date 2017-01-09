@@ -68,9 +68,8 @@ function cleanData(data) {
         element.date = moment(date).format('MMM-D');
         let phoneform = formatPhoneNumber(element);
         if (element.waiter_id) {
-
+            element.waiter.phone_number = phoneform;
         }
-        // element.waiter.phone_number = phoneform;
     });
     return cleanArr;
 }
@@ -171,7 +170,7 @@ function endJob() {
 
 function noJobs(clean) {
     if (clean.length === 0) {
-        $('.no-job').append(`<h1>No Current Requests</h1>`);
+        $('.no-job').append(`<h1 class="norequest">No Current Requests</h1>`);
     } else {
         $('.no-job').empty();
     }
