@@ -48,21 +48,31 @@ function cleanData(data) {
     cleanArr.forEach(function(element) {
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
         let date = moment(element.date, 'ISO_8601').format('MM-DD-YYYY');
+        element.now = date;
         let start = moment(element.start_time, 'HH:MM:SS').format('HH:MM');
+        let end = moment(element.end_time, 'HH:MM:SS').format('HH:MM');
         let datetime = moment(`${date} ${element.start_time}`).format('MM-DD-YYYY HH:mm');
         let nowDur = moment(now);
+        let nowDur2 = moment(end);
         let datetimeDur = moment(datetime);
-        let duration = nowDur.diff(datetime, 'minutes');
+        let duration = nowDur.diff(datetime, 'seconds');
         let duration2 = nowDur.diff(datetime);
         let newEffort = moment.duration(nowDur - datetimeDur);
+        let endEffort = moment.duration(nowDur2 - datetimeDur);
         let durationClean = moment(newEffort._data).format("H[h] m[m]");
+        let endDurationClean = moment(endEffort._data).format("H[h] m[m]");
+        console.log(endDurationClean);
         if (duration > 0) {
-            element.active_time = durationClean;
+            if (element.status === 'Completed') {
+                element.active_time = 'Over';
+            } else {
+                element.active_time = durationClean;
+            }
         } else {
-            element.active_time = "Not Started";
+            element.active_time = 'Not Started';
         }
         if (element.active_time != 'Not Started') {
-            let cost = (duration * 0.2).toFixed(2);
+            let cost = (duration * 0.0033).toFixed(2);
             element.cost = cost;
         } else {
             element.cost = 0;
@@ -180,7 +190,7 @@ function updateStatus() {
             status: selected,
             starting_time: timestamp
         };
-        $.post(`${SERVER_URL}/emailAPI`,jobObj);
+        $.post(`${SERVER_URL}/emailAPI`, jobObj);
         $.ajax({
             url: `${SERVER_URL}/waiterAPI/jobs`,
             method: "PUT",
