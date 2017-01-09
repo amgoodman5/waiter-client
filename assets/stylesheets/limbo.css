@@ -5,7 +5,6 @@
     padding:none;
 }
 
-
 /* nav button*/
 
 ul.nav.navbar-nav.navbar-right {
@@ -117,7 +116,15 @@ button#drive_btn {
     padding-right: 1em;
     padding-left: 1em;
 }
-
+.form {
+    border-radius: 0px;
+    background: rgba(44, 62, 80, 0.31);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20%;
+    box-shadow: 1px 1px 1px 1px;
+}
 .limbo-header {
     margin-top: 3em;
 }
@@ -198,10 +205,13 @@ button#drive_btn {
 }
 
 #pac-input {
+    /* border-width: 9px; */
+    /* border: solid; */
+    box-shadow: 1px 1px 1px 1px;
+
     margin-bottom: 1em;
     margin-top: 1em;
 }
-
 .list-group-item {
     padding-top: .25em!important;
     padding-right: 2em!important;
@@ -246,7 +256,8 @@ label {
 }
 
 .whitespace {
-    padding: 10%;
+    background-color: #f0ad4e;
+    padding: 5%;
 }
 footer {
     padding-top: 1%;
@@ -264,7 +275,7 @@ footer p {
 }
 
 footer {
-    position: fixed;
+    position: relative;
     width: 100%;
     bottom: 0;
     padding-top: 1%;
