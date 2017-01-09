@@ -41,16 +41,25 @@ function cleanData(data) {
     cleanArr.forEach(function(element) {
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
         let date = moment(element.date, 'ISO_8601').format('MM-DD-YYYY');
+        element.now = date;
         let start = moment(element.start_time, 'HH:MM:SS').format('HH:MM');
+        let end = moment(element.end_time, 'HH:MM:SS').format('HH:MM');
         let datetime = moment(`${date} ${element.start_time}`).format('MM-DD-YYYY HH:mm');
         let nowDur = moment(now);
+        let nowDur2 = moment(end);
         let datetimeDur = moment(datetime);
         let duration = nowDur.diff(datetime, 'seconds');
         let duration2 = nowDur.diff(datetime);
         let newEffort = moment.duration(nowDur - datetimeDur);
+        let endEffort = moment.duration(nowDur2 - datetimeDur);
         let durationClean = moment(newEffort._data).format("H[h] m[m]");
+        let endDurationClean = moment(endEffort._data).format("H[h] m[m]");
         if (duration > 0) {
-            element.active_time = durationClean;
+            if (element.status === 'Completed') {
+                element.active_time = 'Over';
+            } else {
+                element.active_time = durationClean;
+            }
         } else {
             element.active_time = 'Not Started';
         }
@@ -131,9 +140,7 @@ function appendCompletedJob(data) {
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Completed') {
-            element.start_time = element.end_time;
             clean.push(element)
-            console.log(clean);
         }
     });
     let source = $('#job-template').html();
@@ -195,9 +202,9 @@ function formatPhoneNumber(element) {
     }
 }
 
-function getUserName(){
-  $.get(`${SERVER_URL}/userAPI`)
-  .then((data)=>{
-    return $('#user-name').html(`${data[0].fname}'s Requests`);
-  });
+function getUserName() {
+    $.get(`${SERVER_URL}/userAPI`)
+        .then((data) => {
+            return $('#user-name').html(`${data[0].fname}'s Requests`);
+        });
 }
