@@ -4,7 +4,7 @@ body{
 a {
   cursor: pointer;
 }
-span {
+.logo {
     font-style: italic;
     font-weight: lighter;
     color: orange;
@@ -231,7 +231,7 @@ div#box {
     color: white;
     opacity: 1;
     display: block;
-    background: rgba(255, 165, 0, 0.8);
+    background: rgba(255, 165, 0, 0.7);
     position: absolute;
     bottom: 0;
     text-align: center;

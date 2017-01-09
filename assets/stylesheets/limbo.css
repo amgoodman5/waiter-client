@@ -25,7 +25,7 @@ a:hover {
     text-decoration: none;
 }
 
-span {
+.logo {
     font-style: italic;
     font-weight: lighter;
     color: orange;
