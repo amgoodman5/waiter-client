@@ -28,11 +28,11 @@ ul.nav.navbar-nav.navbar-right {
     display: flex;
 }
 button#nav_buttons {
-    padding-top: 1em;
+    padding-top: .5em;
     margin-right: 10px;
-    padding-bottom: 1em;
-    padding-right: 2em;
-    padding-left: 2em;
+    padding-bottom: .5em;
+    padding-right: 1em;
+    padding-left: 1em;
     background-color: orange;
     border: none;
     color: white;
@@ -55,7 +55,8 @@ a:hover{
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     button#nav_buttons {
-      padding-bottom: 1em;
+      padding-bottom: .5em;
+      padding-top: .5em;
       background-color: orange;
       border: none;
       color: white;
@@ -86,7 +87,7 @@ a#buttons:hover {
 
 .parallax {
     /* The image used */
-    background-image: url("../images/line.jpg");
+    background-image: url("../images/causal.jpg");
 
     /* Set a specific height */
      height: 50%;
