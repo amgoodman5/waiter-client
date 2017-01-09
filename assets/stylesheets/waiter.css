@@ -26,6 +26,61 @@ a.navbar-brand {
   justify-content: space-between;
 }
 
+ul.nav.navbar-nav.navbar-right {
+    display: flex;
+    justify-content: center;
+}
+
+button#nav_buttons {
+    padding-top: .5em;
+    margin-right: 10px;
+    padding-bottom: .5em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background-color: orange;
+    border: none;
+    color: white;
+    /* margin-right: 1em; */
+    min-width: 6em;
+}
+
+button#nav_buttons:hover {
+    background-color: #c78203;
+    transition: all 0.5s;
+}
+
+.nav a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    button#nav_buttons {
+        padding-bottom: .5em;
+        padding-top: .5em;
+        background-color: orange;
+        border: none;
+        color: white;
+        min-width: 10em;
+        margin-right: 10px;
+    }
+}
+#log-out {
+    padding-top: .5em;
+    margin-right: 10px;
+    padding-bottom: .5em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background-color: orange;
+    border: none;
+    color: white;
+    /* margin-right: 1em; */
+    min-width: 6em;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -46,7 +101,10 @@ a.navbar-brand {
   margin: 0px!important;
   text-align: center;
 }
-
+.overlay {
+    background-color: rgba(0, 0, 0, 0.42);
+    height: 100%;
+}
 .job-request {
   margin: 0!important;
   padding: 0!important;
@@ -74,17 +132,26 @@ a.navbar-brand {
   justify-content: center;
   margin: 0px;
 }
-
 .accordion-header {
-  display: flex;
-  flex-direction: row;
-  background-color: #E8EBF7;
-  padding-top: 1em;
-  padding-bottom: 0;
-  font-size: .8em;
-  margin: 0px!important;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #E8EBF7;
+    padding-top: 1em;
+    padding-bottom: 0;
+    font-size: .8em;
+    margin: 0px!important;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    padding-bottom: 2%;
+    color: #2c3e50;
 }
+  .col-xs-4.accordion-label.reqtime {
+      padding-right: 12%;
+  }
+
+
 
 .accordion-job {
   display: flex;
