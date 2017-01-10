@@ -4,7 +4,6 @@ const JOB_URL2 = getUrl1();
 $(document).ready(() => {
     getJob()
         .then((jobs) => {
-            console.log(jobs);
             jobs.forEach((job) => {
 
                 let cleanDate = moment(jobs.date).format('MMMM Do YYYY');
@@ -20,14 +19,12 @@ $(document).ready(() => {
             type="submit">Accept Job</button></div>
              <div class="panel-body"></div>
             </div></div></div></div></div></div>`
-                console.log(card)
                 $(".job_cards").append(card)
             });
 
 
 
             $('.accept-button').on('click', function(event) {
-                console.log(this.dataset.id);
                 var jobObj = {
                     id: this.dataset.id
                 };
@@ -66,13 +63,6 @@ function getUrl() {
         return 'https://line-waiter-db.herokuapp.com';
     }
 };
-
-// $.get(JOB_URL).then(job =>{
-//   job.forEach((job) => {
-//     console.log(job);
-//   })
-//   getUrl()
-// })
 
 function errorFunction(err) {
     if (err.status === 401) {

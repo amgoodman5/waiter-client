@@ -42,8 +42,7 @@ function getJob() {
 }
 
 function cleanData(data) {
-    console.log(data);
-    noJobs(data)
+    noJobs(data);
     let cleanArr = data;
     cleanArr.forEach(function(element) {
         let now = moment(moment(), 'ISO_8601').format('MM-DD-YYYY HH:mm');
@@ -111,7 +110,7 @@ function appendInLineJob(data) {
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Waiting') {
-            clean.push(element)
+            clean.push(element);
         }
     });
     let source = $('#job-template').html();
@@ -119,7 +118,6 @@ function appendInLineJob(data) {
     let context = {
         clean
     };
-    console.log(context);
     let html = template(context);
     $('#waiting-job').html(html);
 
@@ -131,7 +129,7 @@ function appendAcceptedJob(data) {
     let clean = [];
     data.forEach(function(element) {
         if (element.status === 'Accepted') {
-            clean.push(element)
+            clean.push(element);
         }
     });
     let source = $('#job-template').html();
@@ -151,7 +149,7 @@ function appendCompletedJob(data) {
     data.forEach(function(element) {
         if (element.status === 'Completed') {
             element.start_time = element.end_time;
-            clean.push(element)
+            clean.push(element);
         }
     });
     let source = $('#job-template').html();
@@ -167,7 +165,6 @@ function appendCompletedJob(data) {
 
 function endJob() {
     $('.end-job').on('click', function(event) {
-        console.log(this.dataset.id);
         let timestamp = moment().format('MM-DD-YYYY HH:mm');
         var jobObj = {
             id: this.dataset.id,
@@ -187,7 +184,6 @@ function endJob() {
 
 function updateStatus() {
     $('.select-list').on('change', function(event) {
-        console.log('running');
         let jobID = $(this).find("option:selected").data('id');
         let selected = $(this).find("option:selected").html();
         let timestamp = moment().format('MM-DD-YYYY HH:mm');
@@ -203,9 +199,8 @@ function updateStatus() {
             data: jobObj,
             dataType: "application/json"
         }).done(function(result) {
-            console.log('hello');
             location.reload();
-        })
+        });
     });
 }
 

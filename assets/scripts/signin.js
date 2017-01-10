@@ -3,27 +3,18 @@ const SERVER_URL = getUrl1();
 
 $(document).ready(function() {
     $("#signin-form").on("submit", function(event) {
-      event.preventDefault();
-      var userData = $(this).serialize();
-      console.log(userData);
-      checkUser(userData)
-      .then((data)=>{
-        console.log(data);
-        window.location.replace(`${CLIENT_URL}/dashboard.html`);
-      })
-      .catch(errorFunction);
+        event.preventDefault();
+        var userData = $(this).serialize();
+        checkUser(userData)
+            .then((data) => {
+                window.location.replace(`${CLIENT_URL}/dashboard.html`);
+            })
+            .catch(errorFunction);
     });
 });
 
-
-
 function checkUser(formData) {
-    //error keeps triggering but it posts to db... is it because it is asynchronous?
-    return $.post(`${SERVER_URL}/authAPI`, formData)
-        //
-        // .catch(function(error){
-        //   console.log(error,'testttt');
-        // });
+    return $.post(`${SERVER_URL}/authAPI`, formData);
 }
 
 function getUrl1() {
@@ -32,7 +23,7 @@ function getUrl1() {
     } else {
         return 'https://line-waiter-db.herokuapp.com';
     }
-};
+}
 
 function getUrl2() {
     if (window.location.host.indexOf('localhost') != -1) {
@@ -40,7 +31,7 @@ function getUrl2() {
     } else {
         return 'https://line-waiter.firebaseapp.com';
     }
-};
+}
 
 function errorFunction(err) {
     if (err.status === 401) {

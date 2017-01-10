@@ -1,8 +1,6 @@
 const CLIENT_URL = getUrl1();
 const API_URL = getUrl2();
 
-
-
 $(document).ready(function() {
     sendRequest();
     dateInput();
@@ -61,24 +59,20 @@ function initAutocomplete() {
     });
 
     let markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         let places = searchBox.getPlaces();
         $('.autocomplete-box').css('height', '10em');
         createContact(places);
-        console.log(places);
 
         if (places.length === 0) {
             return;
         }
 
-        // Clear out the old markers.
         markers.forEach(function(marker) {
             marker.setMap(null);
         });
         markers = [];
 
-        // For each place, get the icon, name and location.
         let bounds = new google.maps.LatLngBounds();
         places.forEach(function(place) {
             if (!place.geometry) {
@@ -147,7 +141,6 @@ function sendRequest() {
         formObj.start_time = $('#time-input').val();
         formObj.end_time = $('#time-input').val();
         formObj.phone_number = $('.phone span').html();
-        console.log(formObj);
         $.post(`${API_URL}/users/jobs`, formObj).then(function(result) {
             window.location.replace(`${CLIENT_URL}/dashboard.html`);
         }).catch(function(error) {
@@ -177,7 +170,6 @@ function dateInput() {
 
 function timeInput() {
     let now = moment(moment()).format('HH:mm');
-    console.log(now);
     return $('#time-input').val(now);
 }
 

@@ -7,14 +7,12 @@ $(document).ready(function() {
         var userData = $(this).serialize();
         postNewUser(userData)
             .then((data) => {
-                console.log(data);
                 window.location.replace(`${CLIENT_URL}/dashboard.html`);
             });
     });
 });
 
 function postNewUser(formData) {
-    console.log('try to post');
     return $.post(`${SERVER_URL}/authAPI/new`, formData);
 }
 
@@ -24,7 +22,7 @@ function getUrl1() {
     } else {
         return 'https://line-waiter-db.herokuapp.com';
     }
-};
+}
 
 function getUrl2() {
     if (window.location.host.indexOf('localhost') != -1) {
@@ -32,4 +30,4 @@ function getUrl2() {
     } else {
         return 'https://line-waiter.firebaseapp.com';
     }
-};
+}
