@@ -16,6 +16,7 @@ LineWaiter is a decoupled app using the following:
 * Firebase
 
 ### Back-End
+* https://github.com/line-waiter/waiter-server
 * Node.js
 * Express.js
 * Knex.js
